@@ -1,0 +1,21 @@
+.custom-table .mantine-Table-td {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px;
+    width: 120px;
+    min-width: 120px; /* Ensure minimum width */
+    max-width: 120px; /* Ensure maximum width */
+}
+
+.custom-table .mantine-Table-table {
+    table-layout: fixed; /* Enforce fixed table layout */
+    width: 100%; /* Adjust to the full width of the container */
+}
+
+td.dash-cell.cell--selected.focused {
+  background-color: #c4f0d5 !important;
+}
+
+td.dash-cell {
+  border-color: #d8d8d8 !important;
+}
