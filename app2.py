@@ -6013,10 +6013,16 @@ ploss_torque = dmc.Flex(
 )
 
 
-Next_ImLoss = dmc.Flex(
+
+
+
+#ploss current
+
+Next_ImLoss=dmc.Flex(
     [
         dmc.Flex(
             [
+                # dmc.Space(h="xl"),
                 dmc.Text("Pe",size="sm", id="Imlosstype1Text",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
                 dmc.ScrollArea(
                     h="32%",
@@ -6065,7 +6071,7 @@ Next_ImLoss = dmc.Flex(
              
             ],
             style={
-                'width': '35%',
+                'width': '40%',
                 'height': 'calc(100vh - 10px)',
                 'border': 'none',
                 'marginTop': "15px",
@@ -6125,7 +6131,7 @@ Next_ImLoss = dmc.Flex(
              
             ],
             style={
-                'width': '35%',
+                'width': '40%',
                 'height': 'calc(100vh - 10px)',
                 'border': 'none',
                 'marginTop': "15px",
@@ -6199,7 +6205,7 @@ Next_ImLoss = dmc.Flex(
                                 dcc.Graph(id="graphImL3", style={"height": "100%", "width": "100%"}),
                                 dmc.ActionIcon(
                                     DashIconify(icon="iconamoon:screen-full-thin", width=30,color="white"),
-                                    id="open29",
+                                    id="open30",
                                     size="lg",
                                     color="#2e2e2e",
                                     variant="subtle",
@@ -6228,7 +6234,7 @@ Next_ImLoss = dmc.Flex(
                 # dcc.Graph(id="graphTn3",style={"height":"32%"}),
             ],
             style={
-                'width': '30%',
+                'width': '20%',
                 'height': 'calc(100vh - 10px)',
                 'border': 'none',
                 'marginTop': "15px",
@@ -6236,7 +6242,25 @@ Next_ImLoss = dmc.Flex(
             },
             direction="column",
             gap="xs",
-        )
+        ),
+
+
+        # dmc.Flex(
+        #     [
+        #         dcc.Graph(id="graphImL1",style={"height":"32%"}),
+        #         dcc.Graph(id="graphImL2",style={"height":"32%"}),
+        #         dcc.Graph(id="graphImL3",style={"height":"32%"}),
+        #     ],
+        #     style={
+        #         'width': '20%',
+        #         'height': 'calc(100vh - 10px)',
+        #         'border': 'none',
+        #         'marginTop': "15px",
+        #         # "background-color": "black"
+        #     },
+        #     direction="column",
+        #     gap="xs",
+        # )
     ],
     direction="row",
     justify="flex-start",
@@ -6245,271 +6269,10 @@ Next_ImLoss = dmc.Flex(
         'width': '100%',
         'height': 'calc(100vh - 10px)',
         'border': 'none',
-        # 'marginTop': "15px",
+        'marginTop': "15px",
         # "background-color": "white"
     },
 )
- 
-
-
-
-#ploss current
-
-# Next_ImLoss=dmc.Flex(
-#     [
-#         dmc.Flex(
-#             [
-#                 # dmc.Space(h="xl"),
-#                 dmc.Text("Pe",size="sm", id="Imlosstype1Text",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
-#                 dmc.ScrollArea(
-#                     h="32%",
-#                     w="100%",
-#                     children=[
-#                         dmc.Table(
-#                             id='OrderTab1',
-#                             striped=False,
-#                             withTableBorder=True,
-#                             withColumnBorders=True,
-#                             px=50,className="custom-table",
-#                             style={"backgroundColor":"white","color":"black"}
-#                         ),
-#                     ]    
-#                 ),
-#                 dmc.Text("Pe",size="sm", id="Imlosstype2Text",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
-#                 dmc.ScrollArea(
-#                     h="32%",
-#                     w="100%",
-#                     children=[
-#                         dmc.Table(
-#                             id='OrderTab2',
-#                             striped=False,
-#                             withTableBorder=True,
-#                             withColumnBorders=True,
-#                             px=50,className="custom-table",
-#                             style={"backgroundColor":"white","color":"black"}
-#                         ),
-#                     ]    
-#                 ),
-#                 dmc.Text("Pe",size="sm", id="Imlosstype3Text",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
-#                 dmc.ScrollArea(
-#                     h="32%",
-#                     w="100%",
-#                     children=[
-#                         dmc.Table(
-#                             id='OrderTab3',
-#                             striped=False,
-#                             withTableBorder=True,
-#                             withColumnBorders=True,
-#                             px=50,className="custom-table",
-#                             style={"backgroundColor":"white","color":"black"}
-#                         ),
-#                     ]    
-#                 ),
-             
-#             ],
-#             style={
-#                 'width': '35%',
-#                 'height': 'calc(100vh - 10px)',
-#                 'border': 'none',
-#                 'marginTop': "15px",
-#                 'overflowY': 'auto'
-#             },
-#             direction="column",
-#             gap="xs",
-#         ),
-#         dmc.Flex(
-#             [
-#                 # dmc.Space(h="xl"),
-#                 dmc.Text("Pe",size="sm", id="Imlosstype1textsetpoints",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
-#                 dmc.ScrollArea(
-#                     h="32%",
-#                     w="100%",
-#                     children=[
-#                         dmc.Table(
-#                             id='OrdMatCalc1',
-#                             striped=False,
-#                             withTableBorder=True,
-#                             withColumnBorders=True,
-#                             px=50,className="custom-table",
-#                             style={"backgroundColor":"white","color":"black"}
-#                         ),
-#                     ]    
-#                 ),
-#                 dmc.Text("Pe",size="sm", id="Imlosstype2textsetpoints",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
-#                 dmc.ScrollArea(
-#                     h="32%",
-#                     w="100%",
-#                     children=[
-#                         dmc.Table(
-#                             id='OrdMatCalc2',
-#                             striped=False,
-#                             withTableBorder=True,
-#                             withColumnBorders=True,
-#                             px=50,className="custom-table",
-#                             style={"backgroundColor":"white","color":"black"}
-#                         ),
-#                     ]    
-#                 ),
-#                 dmc.Text("Pe",size="sm", id="Imlosstype3textsetpoints",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
-#                 dmc.ScrollArea(
-#                     h="32%",
-#                     w="100%",
-#                     children=[
-#                         dmc.Table(
-#                             id='OrdMatCalc3',
-#                             striped=False,
-#                             withTableBorder=True,
-#                             withColumnBorders=True,
-#                             px=50,className="custom-table",
-#                             style={"backgroundColor":"white","color":"black"}
-#                         ),
-#                     ]    
-#                 ),
-             
-#             ],
-#             style={
-#                 'width': '35%',
-#                 'height': 'calc(100vh - 10px)',
-#                 'border': 'none',
-#                 'marginTop': "15px",
-#                 'overflowY': 'auto'
-#             },
-#             direction="column",
-#             gap="xs",
-#         ),
-#         dmc.Flex(
-#             [
-#                 html.Div(
-#                     [
-#                         html.Div(
-#                             [
-#                                 dcc.Graph(id="graphImL1", style={"height": "100%", "width": "100%"}),
-#                                 dmc.ActionIcon(
-#                                     id="open28",
-#                                     children=DashIconify(icon="iconamoon:screen-full-thin", width=30,color="white"),
-#                                     size="lg",
-#                                     color="#2e2e2e",
-#                                     variant="subtle",
-#                                     n_clicks=0,
-#                                     mb=10,
-#                                     style={
-#                                         "position": "absolute",
-#                                         "top": "2px",
-#                                         "left": "5px",
-#                                         "fontSize": "24px",
-#                                         "cursor": "pointer",
-#                                         "zIndex": 10  # Ensure the icon appears above the graph
-#                                     }
-#                                 ),
-#                             ],
-#                             style={"position": "relative", "height": "100%", "width": "100%"}
-#                         )
-#                     ],
-#                     style={"height": "32%", "position": "relative"}  # Adjust the height as needed
-#                 ),
-#                 html.Div(
-#                     [
-#                         html.Div(
-#                             [
-#                                 dcc.Graph(id="graphImL2", style={"height": "100%", "width": "100%"}),
-#                                 dmc.ActionIcon(
-#                                     DashIconify(icon="iconamoon:screen-full-thin", width=30,color="white"),
-#                                     id="open29",
-#                                     size="lg",
-#                                     color="#2e2e2e",
-#                                     variant="subtle",
-#                                     n_clicks=0,
-#                                     mb=10,
-#                                     style={
-#                                         "position": "absolute",
-#                                         "top": "2px",
-#                                         "left": "5px",
-#                                         "fontSize": "24px",
-#                                         "cursor": "pointer",
-#                                         "zIndex": 10  # Ensure the icon appears above the graph
-#                                     }
-#                                 ),
-#                             ],
-#                             style={"position": "relative", "height": "100%", "width": "100%"}
-#                         )
-#                     ],
-#                     style={"height": "32%", "position": "relative"}  # Adjust the height as needed
-#                 ),
-#                 html.Div(
-#                     [
-#                         html.Div(
-#                             [
-#                                 dcc.Graph(id="graphImL3", style={"height": "100%", "width": "100%"}),
-#                                 dmc.ActionIcon(
-#                                     DashIconify(icon="iconamoon:screen-full-thin", width=30,color="white"),
-#                                     id="open30",
-#                                     size="lg",
-#                                     color="#2e2e2e",
-#                                     variant="subtle",
-#                                     n_clicks=0,
-#                                     mb=10,
-#                                     style={
-#                                         "position": "absolute",
-#                                         "top": "2px",
-#                                         "left": "5px",
-#                                         "fontSize": "24px",
-#                                         "cursor": "pointer",
-#                                         "zIndex": 10  # Ensure the icon appears above the graph
-#                                     }
-#                                 ),
-#                             ],
-#                             style={"position": "relative", "height": "100%", "width": "100%"}
-#                         )
-#                     ],
-#                     style={"height": "32%", "position": "relative"}  # Adjust the height as needed
-#                 ),
-#                 dmc.Modal(id="modal28",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id="graphf28",style={'height': '800px'}),],),
-#                 dmc.Modal(id="modal29",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id="graphf29",style={'height': '800px'}),],),
-#                 dmc.Modal(id="modal30",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id="graphf30",style={'height': '800px'}),],),
-#                 # dcc.Graph(id="graphTn1",style={"height":"32%"}),
-#                 # dcc.Graph(id="graphTn2",style={"height":"32%"}),
-#                 # dcc.Graph(id="graphTn3",style={"height":"32%"}),
-#             ],
-#             style={
-#                 'width': '30%',
-#                 'height': 'calc(100vh - 10px)',
-#                 'border': 'none',
-#                 'marginTop': "15px",
-#                 # "background-color": "black"
-#             },
-#             direction="column",
-#             gap="xs",
-#         ),
-
-
-#         # dmc.Flex(
-#         #     [
-#         #         dcc.Graph(id="graphImL1",style={"height":"32%"}),
-#         #         dcc.Graph(id="graphImL2",style={"height":"32%"}),
-#         #         dcc.Graph(id="graphImL3",style={"height":"32%"}),
-#         #     ],
-#         #     style={
-#         #         'width': '20%',
-#         #         'height': 'calc(100vh - 10px)',
-#         #         'border': 'none',
-#         #         'marginTop': "15px",
-#         #         # "background-color": "black"
-#         #     },
-#         #     direction="column",
-#         #     gap="xs",
-#         # )
-#     ],
-#     direction="row",
-#     justify="flex-start",
-#     gap="xs",
-#     style={
-#         'width': '100%',
-#         'height': 'calc(100vh - 10px)',
-#         'border': 'none',
-#         'marginTop': "15px",
-#         # "background-color": "white"
-#     },
-# )
 
 
 ploss_current = dmc.Flex(
@@ -6832,10 +6595,411 @@ ploss_current = dmc.Flex(
     },
 )
 
+Next_PLoss=dmc.Flex(
+    [
+        dmc.Flex(
+            [
+                dmc.Text("Pe",size="sm", id="tnlosstype1Text",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
+                dmc.ScrollArea(
+                    h="32%",
+                    w="100%",
+                    children=[
+                        dmc.Table(
+                            id='LossPointTableTn1',
+                            striped=False,
+                            withTableBorder=True,
+                            withColumnBorders=True,
+                            px=50,className="custom-table",
+                            style={"backgroundColor":"white","color":"black"}
+                        ),
+                    ]    
+                ),
+                dmc.Text("Pe",size="sm", id="tnlosstype2Text",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
+                dmc.ScrollArea(
+                    h="32%",
+                    w="100%",
+                    children=[
+                        dmc.Table(
+                            id='LossPointTableTn2',
+                            striped=False,
+                            withTableBorder=True,
+                            withColumnBorders=True,
+                            px=50,className="custom-table",
+                            style={"backgroundColor":"white","color":"black"}
+                        ),
+                    ]    
+                ),
+                dmc.Text("Pe",size="sm", id="tnlosstype3Text",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
+                dmc.ScrollArea(
+                    h="32%",
+                    w="100%",
+                    children=[
+                        dmc.Table(
+                            id='LossPointTableTn3',
+                            striped=False,
+                            withTableBorder=True,
+                            withColumnBorders=True,
+                            px=50,className="custom-table",
+                            style={"backgroundColor":"white","color":"black"}
+                        ),
+                    ]    
+                ),
+             
+            ],
+            style={
+                'width': '35%',
+                'height': 'calc(100vh - 10px)',
+                'border': 'none',
+                'marginTop': "15px",
+                'overflowY': 'auto'
+            },
+            direction="column",
+            gap="xs",
+        ),
+        dmc.Flex(
+            [
+                dmc.Text("Pe",size="sm", id="tnlosstype1textsetpoints",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
+                dmc.Flex([
+                    dmc.ScrollArea(
+                                h="32%",
+                                w="100%",
+                                children=[
+                                    dmc.Table(
+                                        id='OrderTableTn1',
+                                        striped=False,
+                                        withTableBorder=True,
+                                        withColumnBorders=True,
+                                        px=50,className="custom-table",
+                                        style={"backgroundColor":"white","color":"black"}
+                                    ),
+                                ]    
+                            ),
+                    html.Div(
+                    [
+                        html.Div(
+                            [
+                                dcc.Graph(id="graphTn1", style={"height": "100%", "width": "100%"}),
+                                dmc.ActionIcon(
+                                    id="open25",
+                                    children=DashIconify(icon="iconamoon:screen-full-thin", width=30,color="white"),
+                                    size="lg",
+                                    color="#2e2e2e",
+                                    variant="subtle",
+                                    n_clicks=0,
+                                    mb=10,
+                                    style={
+                                        "position": "absolute",
+                                        "top": "2px",
+                                        "left": "5px",
+                                        "fontSize": "24px",
+                                        "cursor": "pointer",
+                                        "zIndex": 10  # Ensure the icon appears above the graph
+                                    }
+                                ),
+                            ],
+                            style={"position": "relative", "height": "100%", "width": "100%"}
+                        )
+                    ],
+                    style={"height": "32%", "position": "relative"}  # Adjust the height as needed
+                ),
+                    
+                ],direction="row"),
+                dmc.Text("Pe",size="sm", id="tnlosstype2textsetpoints",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
+                dmc.Flex([
+                    dmc.ScrollArea(
+                                h="32%",
+                                w="100%",
+                                children=[
+                                    dmc.Table(
+                                        id='OrderTableTn2',
+                                        striped=False,
+                                        withTableBorder=True,
+                                        withColumnBorders=True,
+                                        px=50,className="custom-table",
+                                        style={"backgroundColor":"white","color":"black"}
+                                    ),
+                                ]    
+                            ),
+                    html.Div(
+                    [
+                        html.Div(
+                            [
+                                dcc.Graph(id="graphTn2", style={"height": "100%", "width": "100%"}),
+                                dmc.ActionIcon(
+                                    id="open26",
+                                    children=DashIconify(icon="iconamoon:screen-full-thin", width=30,color="white"),
+                                    size="lg",
+                                    color="#2e2e2e",
+                                    variant="subtle",
+                                    n_clicks=0,
+                                    mb=10,
+                                    style={
+                                        "position": "absolute",
+                                        "top": "2px",
+                                        "left": "5px",
+                                        "fontSize": "24px",
+                                        "cursor": "pointer",
+                                        "zIndex": 10  # Ensure the icon appears above the graph
+                                    }
+                                ),
+                            ],
+                            style={"position": "relative", "height": "100%", "width": "100%"}
+                        )
+                    ],
+                    style={"height": "32%", "position": "relative"}  # Adjust the height as needed
+                ),
+                    
+                ],direction="row"),
+                dmc.Text("Pe",size="sm", id="tnlosstype3textsetpoints",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
+                dmc.Flex([
+                    dmc.ScrollArea(
+                                h="32%",
+                                w="100%",
+                                children=[
+                                    dmc.Table(
+                                        id='OrderTableTn3',
+                                        striped=False,
+                                        withTableBorder=True,
+                                        withColumnBorders=True,
+                                        px=50,className="custom-table",
+                                        style={"backgroundColor":"white","color":"black"}
+                                    ),
+                                ]    
+                            ),
+                    html.Div(
+                    [
+                        html.Div(
+                            [
+                                dcc.Graph(id="graphTn3", style={"height": "100%", "width": "100%"}),
+                                dmc.ActionIcon(
+                                    id="open27",
+                                    children=DashIconify(icon="iconamoon:screen-full-thin", width=30,color="white"),
+                                    size="lg",
+                                    color="#2e2e2e",
+                                    variant="subtle",
+                                    n_clicks=0,
+                                    mb=10,
+                                    style={
+                                        "position": "absolute",
+                                        "top": "2px",
+                                        "left": "5px",
+                                        "fontSize": "24px",
+                                        "cursor": "pointer",
+                                        "zIndex": 10  # Ensure the icon appears above the graph
+                                    }
+                                ),
+                            ],
+                            style={"position": "relative", "height": "100%", "width": "100%"}
+                        )
+                    ],
+                    style={"height": "32%", "position": "relative"}  # Adjust the height as needed
+                ),
+                    
+                ],direction="row"),
+            ],
+            style={
+                'width': '70%',
+                'height': 'calc(100vh - 10px)',
+                'border': 'none',
+                'marginTop': "15px",
+                'overflowY': 'auto'
+            },
+            direction="column",
+            gap="xs",
+        ),
+
+        # dmc.Flex(
+        #     [
+        #         # dmc.Space(h="xl"),
+        #         dmc.Text("Pe",size="sm", id="tnlosstype1textsetpoints",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
+        #         dmc.ScrollArea(
+        #             h="32%",
+        #             w="100%",
+        #             children=[
+        #                 dmc.Table(
+        #                     id='OrderTableTn1',
+        #                     striped=False,
+        #                     withTableBorder=True,
+        #                     withColumnBorders=True,
+        #                     px=50,className="custom-table",
+        #                     style={"backgroundColor":"white","color":"black"}
+        #                 ),
+        #             ]    
+        #         ),
+        #         dmc.Text("Pe",size="sm", id="tnlosstype2textsetpoints",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
+        #         dmc.ScrollArea(
+        #             h="32%",
+        #             w="100%",
+        #             children=[
+        #                 dmc.Table(
+        #                     id='OrderTableTn2',
+        #                     striped=False,
+        #                     withTableBorder=True,
+        #                     withColumnBorders=True,
+        #                     px=50,className="custom-table",
+        #                     style={"backgroundColor":"white","color":"black"}
+        #                 ),
+        #             ]    
+        #         ),
+        #         dmc.Text("Pe",size="sm", id="tnlosstype3textsetpoints",style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),
+        #         dmc.ScrollArea(
+        #             h="32%",
+        #             w="100%",
+        #             children=[
+        #                 dmc.Table(
+        #                     id='OrderTableTn3',
+        #                     striped=False,
+        #                     withTableBorder=True,
+        #                     withColumnBorders=True,
+        #                     px=50,className="custom-table",
+        #                     style={"backgroundColor":"white","color":"black"}
+        #                 ),
+        #             ]    
+        #         ),
+             
+        #     ],
+        #     style={
+        #         'width': '35%',
+        #         'height': 'calc(100vh - 10px)',
+        #         'border': 'none',
+        #         'marginTop': "15px",
+        #         'overflowY': 'auto'
+        #     },
+        #     direction="column",
+        #     gap="xs",
+        # ),
+        # dmc.Flex(
+        #     [
+        #         html.Div(
+        #             [
+        #                 html.Div(
+        #                     [
+        #                         dcc.Graph(id="graphTn1", style={"height": "100%", "width": "100%"}),
+        #                         dmc.ActionIcon(
+        #                             id="open25",
+        #                             children=DashIconify(icon="iconamoon:screen-full-thin", width=30,color="white"),
+        #                             size="lg",
+        #                             color="#2e2e2e",
+        #                             variant="subtle",
+        #                             n_clicks=0,
+        #                             mb=10,
+        #                             style={
+        #                                 "position": "absolute",
+        #                                 "top": "2px",
+        #                                 "left": "5px",
+        #                                 "fontSize": "24px",
+        #                                 "cursor": "pointer",
+        #                                 "zIndex": 10  # Ensure the icon appears above the graph
+        #                             }
+        #                         ),
+        #                     ],
+        #                     style={"position": "relative", "height": "100%", "width": "100%"}
+        #                 )
+        #             ],
+        #             style={"height": "32%", "position": "relative"}  # Adjust the height as needed
+        #         ),
+        #         html.Div(
+        #             [
+        #                 html.Div(
+        #                     [
+        #                         dcc.Graph(id="graphTn2", style={"height": "100%", "width": "100%"}),
+        #                         dmc.ActionIcon(
+        #                             DashIconify(icon="iconamoon:screen-full-thin", width=30,color="white"),
+        #                             id="open26",
+        #                             size="lg",
+        #                             color="#2e2e2e",
+        #                             variant="subtle",
+        #                             n_clicks=0,
+        #                             mb=10,
+        #                             style={
+        #                                 "position": "absolute",
+        #                                 "top": "2px",
+        #                                 "left": "5px",
+        #                                 "fontSize": "24px",
+        #                                 "cursor": "pointer",
+        #                                 "zIndex": 10  # Ensure the icon appears above the graph
+        #                             }
+        #                         ),
+        #                     ],
+        #                     style={"position": "relative", "height": "100%", "width": "100%"}
+        #                 )
+        #             ],
+        #             style={"height": "32%", "position": "relative"}  # Adjust the height as needed
+        #         ),
+        #         html.Div(
+        #             [
+        #                 html.Div(
+        #                     [
+        #                         dcc.Graph(id="graphTn3", style={"height": "100%", "width": "100%"}),
+        #                         dmc.ActionIcon(
+        #                             DashIconify(icon="iconamoon:screen-full-thin", width=30,color="white"),
+        #                             id="open27",
+        #                             size="lg",
+        #                             color="#2e2e2e",
+        #                             variant="subtle",
+        #                             n_clicks=0,
+        #                             mb=10,
+        #                             style={
+        #                                 "position": "absolute",
+        #                                 "top": "2px",
+        #                                 "left": "5px",
+        #                                 "fontSize": "24px",
+        #                                 "cursor": "pointer",
+        #                                 "zIndex": 10  # Ensure the icon appears above the graph
+        #                             }
+        #                         ),
+        #                     ],
+        #                     style={"position": "relative", "height": "100%", "width": "100%"}
+        #                 )
+        #             ],
+        #             style={"height": "32%", "position": "relative"}  # Adjust the height as needed
+        #         ),
+        #         dmc.Modal(id="modal25",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id="graphf25",style={'height': '800px'}),],),
+        #         dmc.Modal(id="modal26",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id="graphf26",style={'height': '800px'}),],),
+        #         dmc.Modal(id="modal27",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id="graphf27",style={'height': '800px'}),],),
+        #         # dcc.Graph(id="graphTn1",style={"height":"32%"}),
+        #         # dcc.Graph(id="graphTn2",style={"height":"32%"}),
+        #         # dcc.Graph(id="graphTn3",style={"height":"32%"}),
+        #     ],
+        #     style={
+        #         'width': '30%',
+        #         'height': 'calc(100vh - 10px)',
+        #         'border': 'none',
+        #         'marginTop': "15px",
+        #         # "background-color": "black"
+        #     },
+        #     direction="column",
+        #     gap="xs",
+        # )
+    ],
+    direction="row",
+    justify="flex-start",
+    gap="xs",
+    style={
+        'width': '100%',
+        'height': 'calc(100vh - 10px)',
+        'border': 'none',
+        # 'marginTop': "15px",
+        # "background-color": "white"
+    },
+)
+
+
+
+
+
+
+
+
+
+
 
 ploss_tab=dmc.Flex([
     dmc.Flex([
-            dmc.Paper(children=[dmc.Text("Loss Type", size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center","padding": "8px"})], 
+            dmc.Paper(children=[dmc.Text("Loss Type", size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center","padding": "8px"}),
+                                dmc.Button("Next",id="Next_pLossButton",style={"color": "#5db1ec","fontWeight": "bold","backgroundColor":  "rgba(34, 139, 230, 0.15)","justifyContent": "flex-end"}),
+                                dmc.Drawer(id="ploscurrent-drawer",padding="xs",size="100%",children=Next_PLoss),
+                                ], 
                 withBorder=True,shadow="sm", style={"backgroundColor":  "rgba(34, 139, 230, 0.15)",'width': '30%',"justifyContent": "center", "alignItems": "center"}),
             # dmc.Text("Mode", fw=500),
             dmc.Select(id="ploss_types",value="2",data=[ 
@@ -6864,6 +7028,38 @@ ploss_tab=dmc.Flex([
         # "background-color": "white"
     },
 )
+
+# ploss_tab=dmc.Flex([
+#     dmc.Flex([
+#             dmc.Paper(children=[dmc.Text("Loss Type", size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center","padding": "8px"})], 
+#                 withBorder=True,shadow="sm", style={"backgroundColor":  "rgba(34, 139, 230, 0.15)",'width': '30%',"justifyContent": "center", "alignItems": "center"}),
+#             # dmc.Text("Mode", fw=500),
+#             dmc.Select(id="ploss_types",value="2",data=[ 
+#                 {"value": "1", "label": "Pbattery"},{"value": "2", "label": "Ploss",},{"value": "3", "label": "Pcopper"},{"value": "4", "label": "Piron",},
+#                 {"value": "5", "label": "Pstray"},{"value": "6", "label": "Pfriction",},{"value": "7", "label": "Pwindage"},{"value": "8", "label": "Pinverter",},
+#                 {"value": "9", "label": "Positive efficicency"},{"value": "10", "label": "Negative efficicency",},{"value": "11", "label": "efficicency"},
+#                 ],
+#                        style={"color": "#0be40a",} ), 
+#     ],
+#     direction="row",
+#     # gap="sm",
+#     align="center",
+#     justify="center",
+#     mt=5
+#     ),
+#     dmc.Flex([
+#         dcc.Graph(id='graphpl1',style={'height': '750px','width': '100%',}),
+#     ], mt=5)
+
+# ],direction="column",
+#     style={
+#         'width': '100%',
+#         'height': 'calc(100vh - 10px)',
+#         'border': 'none',
+#         'marginTop': "15px",
+#         # "background-color": "white"
+#     },
+# )
 
 #ploss current
 
@@ -7063,7 +7259,7 @@ page_content_evm = dmc.Tabs(
                     dmc.TabsTab("P-Loss analysis by Torque", value="ploss-torque",darkHidden=True,id="pt"),
                     dmc.TabsTab("P-Loss analysis by Current", value="ploss-current",darkHidden=True,id="pc"),
                     # dmc.TabsTab("Data", value="data",darkHidden=True,id="data"),
-                    dmc.TabsTab("Ploss", value="ploss-tab",darkHidden=True,id="ploss-tab"),
+                    dmc.TabsTab("Ploss", value="ploss-tab",id="ploss-tab"),
                 ],
             style={"justifyContent": "center", "display": "flex"}
             ),
@@ -7077,7 +7273,7 @@ page_content_evm = dmc.Tabs(
             # dmc.TabsPanel(children=data_tab, value="data"),
             # dmc.TabsPanel("Settings tab content", value="settings"),
         ],
-        value="Input",
+        value="ploss-tab",
         color="#2596be",
         variant="pills",
 )
@@ -8584,7 +8780,7 @@ def toggle_add_motor(n_clicks, opened):
     Output("drive-pattern", "darkHidden"),
     Output("pt", "darkHidden"),
     Output("pc", "darkHidden"),
-    Output("ploss-tab", "darkHidden"),
+    # Output("ploss-tab", "darkHidden"),
     Output("next-link","children"),
     Output("module-error", "opened"),
     [Input("next-button", "n_clicks"),
@@ -8610,7 +8806,7 @@ def NextButtonPushed(n_clicks, motor_file, inverter_file, battery_file, gear_fil
         resetab()
 
     if n_clicks is None:
-        return True,True,True,True,True,True, opened
+        return True,True,True,True,True, opened
    
     all_files_non_empty = all(
         isinstance(file, str) and file.strip() for file in
@@ -8670,11 +8866,11 @@ def NextButtonPushed(n_clicks, motor_file, inverter_file, battery_file, gear_fil
             # basic_calc()
 
 
-            return False,False,False,False,False,False,opened
+            return False,False,False,False,False,opened
         else:
-            return True,True,True,True,True,True,not opened
+            return True,True,True,True,True,not opened
     else:
-        return True,True,True,True,True,True,opened
+        return True,True,True,True,True,opened
     
 #basic calc
  
@@ -10120,16 +10316,15 @@ def TnLoss(y1,ord1):
             hoverinfo='x+name'  # Show the values and category name in hover text
         ))
  
-    print("ord1",ord1)
+ 
     custom_y_ticks = list(range(20))
     # Customize the layout
     fig.update_layout(
         barmode='stack',
         yaxis=dict(
             title='Y-Axis Title',
-            # range=[0.5,len(y1) + 0.5],
             tickvals=custom_y_ticks,  # Set the custom tick positions
-            ticktext=[f' {round(ord1[i],3)}' for i in custom_y_ticks],  # Set custom tick labels
+            ticktext=[f' {round(reversed_ord1[i],3)}' for i in custom_y_ticks],  # Set custom tick labels
         ),  # Set y-axis range
         xaxis=dict(title='Values', range=[0, 1]),  # Set the x-axis range to [0, 1]
         # title='Stacked Horizontal Bar Chart',
@@ -10166,7 +10361,7 @@ def TnLoss(y1,ord1):
     # fig.update_xaxes(range=[0, np.max(np.sum(y1, axis=1))], showline=True, linecolor='white')
     # fig.update_yaxes(range=[0.5, len(y1) + 0.5], tickvals=ord1, showline=True, linecolor='#4DBEEE')
     # Show the plot
-    fig.update_layout(showlegend=True)
+    fig.update_layout(showlegend=False)
     return fig
  
 def ImLoss_Current(y1,ord1):
@@ -10208,10 +10403,10 @@ def ImLoss_Current(y1,ord1):
         yaxis=dict(
             title='Y-Axis Title',
             tickvals=custom_y_ticks,  # Set the custom tick positions
-            ticktext=[f' {round(ord1[i],3)}' for i in custom_y_ticks],  # Set custom tick labels
+            ticktext=[f' {round(reversed_ord1[i],3)}' for i in custom_y_ticks],  # Set custom tick labels
         ),  # Set y-axis range
         xaxis=dict(title='Values', range=[0, 1]),  # Set the x-axis range to [0, 1]
-        # title='Stacked Horizontal Bar Chart',
+        title='Stacked Horizontal Bar Chart',
         legend=dict(
             title='Categories',
             title_font=dict(color='white'),  # Set legend title color to white
@@ -10219,7 +10414,7 @@ def ImLoss_Current(y1,ord1):
         ),
         showlegend=True
     )
-    # fig.update_layout(title='WLTC-Ploss by Current at set points',height=400)
+    fig.update_layout(title='WLTC-Ploss by Current at set points',height=400)
     fig.update_layout(
             title_font={'size': 15, 'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
@@ -10234,16 +10429,10 @@ def ImLoss_Current(y1,ord1):
             xaxis_showgrid=False,
             xaxis_zeroline=False,
             yaxis_showgrid=False,
-            margin=dict(
-            l=20,  
-            r=10,  
-            b=20,  
-            t=30
-        ),
  
         )
     # Show the plot
-    fig.update_layout(showlegend=True)
+    fig.update_layout(showlegend=False)
     return fig
 
 @callback(
@@ -11751,209 +11940,128 @@ def update_modal_content(selected_value):
 #         return {"display": "none", "color": "black"}  # Button is hidden in the header
 #     return {"display": "block"}  # Default to visible
 
-
-def points_near_hull(points, hull_indices, distance_threshold):
-    hull_points = points[hull_indices]
-    distances = np.linalg.norm(points[:, None] - hull_points, axis=2)
-    close_points = np.any(distances < distance_threshold, axis=1)
-    return np.where(close_points)[0]
-
-
-@app.callback(
-    # Output('TnLossTab1', 'data'),
-    Output('graphpl1','figure'),
-    [Input("tabs", "value"),
-        Input('ploss_types', 'value'),
-     ]
+@callback(
+    Output("ploscurrent-drawer", "opened"),
+    Input("Next_pLossButton", "n_clicks"),
+    prevent_initial_call=True,
 )
-def LosstypeDropDownValueChanged(tab ,selected_value):
-    global IPMflag
+def drawer_demo(n_clicks):
+    return True
 
-    # TnLoss1={}
-    # global TnScale_init,TnScale_inc,Tnfreqmap,dp
+
+# @app.callback(
+#     # Output('TnLossTab1', 'data'),
+#     Output('graphpl1','figure'),
+#     [Input("tabs", "value"),
+#         Input('ploss_types', 'value'),
+#      ]
+# )
+# def LosstypeDropDownValueChanged(tab ,selected_value):
+#     global IPMflag
+
+#     # TnLoss1={}
+#     # global TnScale_init,TnScale_inc,Tnfreqmap,dp
  
-    # if selected_value is None:
-    #     return [],dash.no_update
-    # global ploss,ipm 
-    if tab != "ploss-tab":
-        return dash.no_update
+#     # if selected_value is None:
+#     #     return [],dash.no_update
+#     # global ploss,ipm 
+#     if tab != "ploss-tab":
+#         return dash.no_update
 
-    # Ensure selected value is available
-    if selected_value is None:
-        return dash.no_update
+#     # Ensure selected value is available
+#     if selected_value is None:
+#         return dash.no_update
 
-    if IPMflag == 0:
-        crr = np.array([S1K, S5K, S10K, S15K]) + ipm.initial
-        ipm.plaId,ipm.plaIq = ipmclass.filter(crr,ipm.rpm,ipm.Id,ipm.Iq)
-        num=len(ipm.rpm)
-        ipmclass.losscalc(ipm,mot,inv,igbt,Temp,Flag,num)
-        gt = ipmclass.graphtool(ipm.IPMstatus,ipm.Id,ipm.Iq,ipm.Tn,ipm.Pe)
-        IPMflag = 1
+#     if IPMflag == 0:
+#         crr = np.array([S1K, S5K, S10K, S15K]) + ipm.initial
+#         ipm.plaId,ipm.plaIq = ipmclass.filter(crr,ipm.rpm,ipm.Id,ipm.Iq)
+#         num=len(ipm.rpm)
+#         ipmclass.losscalc(ipm,mot,inv,igbt,Temp,Flag,num)
+#         gt = ipmclass.graphtool(ipm.IPMstatus,ipm.Id,ipm.Iq,ipm.Tn,ipm.Pe)
+#         IPMflag = 1
 
-    ipm.Pbtt=np.real(ipm.Pbtt)
-    ipm.Ploss=np.real(ipm.Ploss)
-    ipm.Pcu=np.real(ipm.Pcu)
-    ipm.Pfe=np.real(ipm.Pfe)
-    ipm.Pstr=np.real(ipm.Pstr)
-    ipm.Pfric=np.real(ipm.Pfric)
-    ipm.Pinv=np.real(ipm.Pinv)
-    ipm.Pwind=np.real(ipm.Pwind)
-    ipm.posin=np.real(ipm.posin)
-    ipm.negan=np.real(ipm.negan)
-    ipm.n =np.real(ipm.n )
+#     ipm.Pbtt=np.real(ipm.Pbtt)
+#     ipm.Ploss=np.real(ipm.Ploss)
+#     ipm.Pcu=np.real(ipm.Pcu)
+#     ipm.Pfe=np.real(ipm.Pfe)
+#     ipm.Pstr=np.real(ipm.Pstr)
+#     ipm.Pfric=np.real(ipm.Pfric)
+#     ipm.Pinv=np.real(ipm.Pinv)
+#     ipm.Pwind=np.real(ipm.Pwind)
+#     ipm.posin=np.real(ipm.posin)
+#     ipm.negan=np.real(ipm.negan)
+#     ipm.n =np.real(ipm.n )
 
-    print("ipm.Pstr",ipm.Pstr)
-    if selected_value == "1":
-        ploss = ipm.Pbtt
-    elif selected_value == "2":
-        ploss = ipm.Ploss
-    elif selected_value == "3":
-        ploss = ipm.Pcu
-    elif selected_value == "4":
-        ploss =ipm.Pfe
-    elif selected_value == "5":
-        ploss = ipm.Pstr
-    elif selected_value == "6":
-        ploss = ipm.Pfric
-    elif selected_value == "7":
-        ploss = ipm.Pwind
-    elif selected_value == "8":
-        ploss = ipm.Pinv
-    elif selected_value == "9":
-        ploss = ipm.posin
-    elif selected_value == "10":
-        ploss = ipm.negan
-    elif selected_value == "11":
-        ploss = ipm.n
+#     print("ipm.Pstr",ipm.Pstr)
+#     if selected_value == "1":
+#         ploss = ipm.Pbtt
+#     elif selected_value == "2":
+#         ploss = ipm.Ploss
+#     elif selected_value == "3":
+#         ploss = ipm.Pcu
+#     elif selected_value == "4":
+#         ploss =ipm.Pfe
+#     elif selected_value == "5":
+#         ploss = ipm.Pstr
+#     elif selected_value == "6":
+#         ploss = ipm.Pfric
+#     elif selected_value == "7":
+#         ploss = ipm.Pwind
+#     elif selected_value == "8":
+#         ploss = ipm.Pinv
+#     elif selected_value == "9":
+#         ploss = ipm.posin
+#     elif selected_value == "10":
+#         ploss = ipm.negan
+#     elif selected_value == "11":
+#         ploss = ipm.n
 
-    y=np.real(ipm.Tn)
-    x = np.real(ipm.rpm[:len(y)])
+#     y=np.real(ipm.Tn)
+#     x = np.real(ipm.rpm[:len(y)])
 
-    # Ensure all data are column vectors and reshape them
-    x = x.reshape(-1, 1)
-    y = y.reshape(-1, 1)
-    ploss = ploss.reshape(-1, 1)
+#     # Ensure all data are column vectors and reshape them
+#     x = x.reshape(-1, 1)
+#     y = y.reshape(-1, 1)
+#     ploss = ploss.reshape(-1, 1)
 
-    # Remove duplicate points by averaging
-    unique_points, idx = np.unique(np.hstack((x, y)), axis=0, return_inverse=True)
-    x = unique_points[:, 0]
-    y = unique_points[:, 1]
-    ploss = np.array([np.mean(ploss[idx == i]) for i in range(len(unique_points))])
+#     # Remove duplicate points by averaging
+#     unique_points, idx = np.unique(np.hstack((x, y)), axis=0, return_inverse=True)
+#     x = unique_points[:, 0]
+#     y = unique_points[:, 1]
+#     ploss = np.array([np.mean(ploss[idx == i]) for i in range(len(unique_points))])
 
-    # Create the scatter plot
-    scatter = go.Scatter(
-        x=x.flatten(),
-        y=y.flatten(),
-        mode='markers',
-        marker=dict(
-            color=ploss.flatten(),
-            colorscale='Jet',
-            size=10,
-            colorbar=dict(
-                title="Loss"
-            ),
-            line=dict(width=1, color='black')  # Edge color (similar to 'edgecolor' in Matplotlib)
-        )
-    )
+#     # Create the scatter plot
+#     scatter = go.Scatter(
+#         x=x.flatten(),
+#         y=y.flatten(),
+#         mode='markers',
+#         marker=dict(
+#             color=ploss.flatten(),
+#             colorscale='Jet',
+#             size=10,
+#             colorbar=dict(
+#                 title="Loss"
+#             ),
+#             line=dict(width=1, color='black')  # Edge color (similar to 'edgecolor' in Matplotlib)
+#         )
+#     )
+#     fig = go.Figure(data=[scatter])
 
-    # Create figure
-
-
-    # Add axis color and grid
-    # fig.update_xaxes(showgrid=True, gridcolor='white', color='white')
-    # fig.update_yaxes(showgrid=True, gridcolor='#4DBEEE', color='#4DBEEE')  
-
-    # y=np.real(ipm.Tn)
-    # x = np.real(ipm.rpm[:len(y)])
-
-    # x = x.reshape(-1, 1).flatten()
-    # y = y.reshape(-1, 1).flatten()
-    # ploss = ploss.reshape(-1, 1).flatten()
-
-    # # Remove duplicate points by averaging
-    # unique_points, idx = np.unique(np.column_stack((x, y)), axis=0, return_inverse=True)
-    # x = unique_points[:, 0]
-    # y = unique_points[:, 1]
-    # ploss = np.array([np.mean(ploss[idx == i]) for i in range(len(unique_points))])
-
-    # # Create the scatter plot using Plotly
-    # scatter = go.Scatter(
-    #     x=x,
-    #     y=y,
-    #     mode='markers',
-    #     marker=dict(size=8, color=ploss,  showscale=True, colorbar=dict(title='Ploss')),
-    #     name='Scatter'
-    # )
-
-    # # Define the convex hull
-    # hull = ConvexHull(np.column_stack((x, y)))
-    # points = np.column_stack((x, y))
-    # hull = ConvexHull(points)
-    # k = hull.vertices
-    # pgX = x[hull.vertices]
-    # pgY = y[hull.vertices]
-    points = np.column_stack((x, y))  # Assuming x and y are your data points
-    distance_threshold = 5.0  # Adjust this threshold to get more points
-    hull = ConvexHull(points)
-     # k = hull.vertices
-    extra_points = points_near_hull(points, hull.vertices, distance_threshold)
-
-    print("extra_points",extra_points)
-    pgX = x[extra_points]
-    pgY = y[extra_points]
-    # print("k",k)
-
-    # # Create a grid within the polygon
-    Xq, Yq = np.meshgrid(np.linspace(min(x), max(x), 100), np.linspace(min(y), max(y), 100))
-
-    # Create a mask for points inside the polygon
-    polygon = Path(np.column_stack((pgX, pgY)))
-    in_polygon = polygon.contains_points(np.column_stack((Xq.ravel(), Yq.ravel()))).reshape(Xq.shape)
-
-    zmin = np.min(ploss)
-    zmax = np.max(ploss)
-    pitch = 10  # Replace this with the actual value from your slider
-    levels = np.linspace(zmin, zmax, pitch)
-
-    # Interpolate the ploss values over the grid using 'cubic' interpolation
-    Zq = griddata((x, y), ploss, (Xq, Yq), method='cubic')
-
-    # Apply the mask: set values outside the polygon to NaN
-    Zq[~in_polygon] = np.nan
-
-    # Plot the contour map using Plotly
-    contour = go.Contour(
-        z=Zq,
-        x=Xq[0, :],
-        y=Yq[:, 0],
-        colorscale='Jet',
-        showscale=True,
-        colorbar=dict(title='Ploss'),
-        contours=dict(
-            start=zmin,
-            end=zmax,
-            size=(zmax - zmin) / pitch
-        )
-    )
-    fig = go.Figure(data=[scatter])
-
-    # Add axis labels
-    fig.update_layout(
-        xaxis_title='RPM',
-        yaxis_title='Tn',
-        plot_bgcolor='rgba(0,0,0,0)',
-        yaxis_showline=False,  # Make y-axis line invisible
-        yaxis_zeroline=False,  # Make y-axis zero line invisible
-        xaxis_showline=False,
-        xaxis_showgrid=False,
-        # paper_bgcolor='rgba(0,0,0,0)',
-        font=dict(color='black')
-    )
+#     # Add axis labels
+#     fig.update_layout(
+#         xaxis_title='RPM',
+#         yaxis_title='Tn',
+#         plot_bgcolor='rgba(0,0,0,0)',
+#         yaxis_showline=False,  # Make y-axis line invisible
+#         yaxis_zeroline=False,  # Make y-axis zero line invisible
+#         xaxis_showline=False,
+#         xaxis_showgrid=False,
+#         # paper_bgcolor='rgba(0,0,0,0)',
+#         font=dict(color='black')
+#     )
  
-    return fig
-    # else:
-    #     # figure1=TorqueVsSpeed(condition_value='1')
-    #     return None
+#     return fig
+
     
 server = app.server
 

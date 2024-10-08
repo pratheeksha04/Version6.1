@@ -39,7 +39,7 @@ class wltcclass:
         self.crusdist = None
         self.ctId = None
         self.ctIq = None
-
+        self.count=0
      def init(self, pole, btt, gear, tire, ip, ipm):
  
         self.acckm = np.zeros(self.num)
@@ -153,7 +153,7 @@ class wltcclass:
         self.rpmflag[idx] = 0
 
 
-        count = 0
+        nacount = 0
         for idx in range(1, self.num):  
             # Col AZ:FCQ - Find the IPM position of the flag for the ongoing WLTC iteration
             condition = (self.rpmflag == 1) & (np.abs(self.werpm[idx]) >= tmprpm) & (np.abs(self.werpm[idx]) < ipm.rpm) & (np.abs(self.Tn[idx]) >= ipm.Tn)
@@ -193,17 +193,25 @@ class wltcclass:
             else:
                 # Count the number of rows without flag
                 if self.Tn[idx] < 0:
-                    count += 1  # AY194
+                    nacount += 1  # AY194
             if self.n[idx] > 0:
                 self.Temp[idx] = (ipm.Temp[index[idx] + 1] - ipm.Temp[index[idx]]) * Tnratio[idx] + ipm.Temp[index[idx]]
+                self.count = self.count + 1
             else:
                 self.Temp[idx] = self.Temp[idx - 1]
-                
 
         self.AccPbatt = np.cumsum(-Pbatt)  # Col AG
- 
-        self.WLTCconpow = -self.AccPbatt[-1]
-        self.WLTCdist = np.sum(dist) / 1000
+ # Logical index of non-NaN elements
+        nonNaNIndex = ~np.isnan(self.AccPbatt)
+
+        # Find the last non-NaN index
+        lastNonNaNIndex = np.where(nonNaNIndex)[0][-1]
+
+        # Assign the value at the last non-NaN index, and negate it
+        # obj.WLTCconpow = -obj.AccPbatt[lastNonNaNIndex]
+
+        self.WLTCconpow = -self.AccPbatt[lastNonNaNIndex]
+        self.WLTCdist = np.nansum(dist) / 1000
         self.bttcon = self.WLTCconpow / self.WLTCdist * 10
         self.crusdist = btt['charge'] / self.bttcon * 10
  
