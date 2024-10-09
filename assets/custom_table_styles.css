@@ -19,3 +19,37 @@ td.dash-cell.cell--selected.focused {
 td.dash-cell {
   border-color: #d8d8d8 !important;
 }
+
+/* Hover effect for row names */
+.custom-table .row-name:hover {
+  background-color: #d1eafc;
+  color: #0050b3;
+}
+
+/* Hover effect for column names */
+.custom-table .col-name:hover {
+  background-color: #f0d1fc;
+  color: #8000b3;
+}
+
+/* General table cell hover */
+.custom-table td:hover {
+  background-color: #e0f0f0;
+}
+
+.custom-table .row-name {
+  background-color: #f0f0f0;  /* Light grey */
+  color: #333;                /* Dark grey for text */
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+
+/* Style for column names (slightly darker grey background) */
+.custom-table .col-name {
+  background-color: #e0e0e0;  /* Slightly darker grey */
+  color: #333;                /* Dark grey for text */
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}

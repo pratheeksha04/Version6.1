@@ -4,7 +4,7 @@ import pandas as pd
 def OrdMatCalc(mode, mat, sumarray, sumPcu, sumPFe, sumPstr, sumPf, sumPw, sumPinv, ptx, pty):
 
     ord_array = np.zeros(20)
-   
+    
     if mode == 1:
         # Find top 10 and bottom 10 values
         uq = np.unique(sumarray[sumarray != 0])
@@ -18,7 +18,7 @@ def OrdMatCalc(mode, mat, sumarray, sumPcu, sumPFe, sumPstr, sumPf, sumPw, sumPi
     # Get indices of ord_array in sumarray
     # idx = np.nonzero(np.isin(ord_array,sumarray))[0]
     idx = [np.where(sumarray == x)[0][0] for x in ord_array if x in sumarray]
-    # print("idx",idx)
+    print("idx",idx)
    
     Pcuord = np.abs(sumPcu[idx])
     Pfeord = np.abs(sumPFe[idx])
