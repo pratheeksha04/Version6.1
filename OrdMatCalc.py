@@ -18,7 +18,7 @@ def OrdMatCalc(mode, mat, sumarray, sumPcu, sumPFe, sumPstr, sumPf, sumPw, sumPi
     # Get indices of ord_array in sumarray
     # idx = np.nonzero(np.isin(ord_array,sumarray))[0]
     idx = [np.where(sumarray == x)[0][0] for x in ord_array if x in sumarray]
-    print("idx",idx)
+
    
     Pcuord = np.abs(sumPcu[idx])
     Pfeord = np.abs(sumPFe[idx])

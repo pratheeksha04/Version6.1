@@ -138,7 +138,7 @@ def TorqueVsSpeed(condition_value='None'):
         fig.update_yaxes(title_text='Torque (Nm)')
         fig.update_layout(title_text="Torque vs speed",title_font=dict(color="rgb(28,18,112)"))
         fig.update_layout(
-            title_font={'size': 12,'color': 'white'},
+            title_font={'size': 15,'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             xaxis_showline=False,
@@ -238,7 +238,7 @@ def TempOnTnGraph(condition_value='None'):
         fig = go.Figure(data=traces ,layout=layout)
         # fig = go.Figure(data=traces + [trace_ct, trace_mp, trace_mv], layout=layout)
         fig.update_layout(
-            title_font={'size': 12,'color': 'white'},
+            title_font={'size': 15,'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             xaxis=dict(showline=False, showgrid=False,zeroline=False),
@@ -310,7 +310,7 @@ def PLoss(condition_value='None'):
         fig.update_yaxes(title='kW', title_font=dict(color='#001c49'))
         fig.update_layout(title='Ploss', legend=dict(title='Categories',title_font=dict(color='white'),font=dict(color='white'),), showlegend=True)
         fig.update_layout(
-            title_font={'size': 12, 'color': 'white'},
+            title_font={'size': 15, 'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             yaxis_title_font=dict(color="white"),  # Set y-axis title color to white
@@ -385,7 +385,7 @@ def PowerVsSpeed(condition_value='None'):
         # Update layout
         fig.update_layout(
             title="Power v/s Speed",
-            title_font={'size': 12,'color': 'white'},
+            title_font={'size': 15,'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             xaxis_title="rpm",
@@ -501,7 +501,7 @@ def TempOnPower(condition_value='None'):
         fig=go.Figure(data=traces ,layout=layout)
         # fig = go.Figure(data=traces + [trace_ct, trace_mp, trace_mv], layout=layout)
         fig.update_layout(
-            title_font={'size': 12,'color': 'white'},
+            title_font={'size': 15,'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             xaxis=dict(showline=False, showgrid=False,zeroline=False ),
@@ -591,7 +591,7 @@ def IdIqControl(condition_value='None'):
     )
 
     if condition_value == '2':
-        fig.update_layout(showlegend=True)
+        fig.update_layout(showlegend=True,title_font={'size': 15,'color': 'white'},)
     else:
         fig.update_layout(showlegend=False)
     return fig
@@ -658,7 +658,7 @@ def lutpointsgraph(condition_value='None'):
         xaxis=dict(range=[-700, 100]),
         yaxis=dict(range=[-100, 700]),
         title='LUT points and Torque and Speed curve, PF',
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis_showline=False,
@@ -709,7 +709,7 @@ def TnCurveButtonPushed( ):
  
     fig.update_layout(title_text="Tn Curve",title_font=dict(color="rgb(28,18,112)"))
     fig.update_layout(
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis_showline=False,
@@ -757,7 +757,7 @@ def TotalTorqueButtonPushed(condition_value='None'):
         yaxis_title='Torque (Nm)',
         xaxis=dict(range=[min(degree), max(degree)]),
         title='Total torque = Magnet torque + Reluctance torque',
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         legend=dict(x=1.03, y=0.5, orientation='v' , font=dict(color='white')),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
@@ -800,7 +800,7 @@ def MaxtorqueperCurrentButtonPushed(condition_value='None'):
         xaxis=dict(title='angle (degree)', title_font=dict(size=12)),
         yaxis=dict(title='Torque (Nm)', title_font=dict(size=12)),
         title_text='MTPA (Max Troque at Irms)',
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis_showline=False,
@@ -928,7 +928,7 @@ def IsVsPfButtonPushed(condition_value='None'):
     # Set the title
     fig.update_layout(
         title='Is, Vs, PF',
-        title_font={'size': 12, 'color': 'white'},
+        title_font={'size': 15, 'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis_showline=False,
@@ -983,27 +983,27 @@ def efficiency_map(condition_value='None'):
     fig = go.Figure()
  
     # Plot the data points with different markers and colors
-    fig.add_trace(go.Scatter(x=a12['posId'], y=a12['posIq'], mode='markers', marker=dict(size=3, color='blue', symbol='triangle-up', line=dict(width=3,color='red'))))
-    fig.add_trace(go.Scatter(x=a12['negId'], y=a12['negIq'], mode='markers', marker=dict(size=3, color='gold', symbol='circle', line=dict(width=3,color='red'))))
+    fig.add_trace(go.Scatter(x=a12['posId'], y=a12['posIq'], mode='markers',name="A12-posi", marker=dict(size=3, color='blue', symbol='triangle-up', line=dict(width=3,color='red'))))
+    fig.add_trace(go.Scatter(x=a12['negId'], y=a12['negIq'], mode='markers',name="A12-Nega", marker=dict(size=3, color='gold', symbol='circle', line=dict(width=3,color='red'))))
  
-    fig.add_trace(go.Scatter(x=a12['negId'][n4000], y=a12['negIq'][n4000], mode='lines+markers', marker=dict(size=3, color='green', symbol='circle', line=dict(width=3, color='red'))))
-    fig.add_trace(go.Scatter(x=a12['posId'][p4000], y=a12['posIq'][p4000], mode='lines+markers', marker=dict(size=3, color='black', symbol='circle', line=dict(width=3, color='green'))))
-    fig.add_trace(go.Scatter(x=a12['negId'][n5000], y=a12['negIq'][n5000], mode='lines+markers', marker=dict(size=3, color='yellow', symbol='circle', line=dict(width=3,color='red'))))
-    fig.add_trace(go.Scatter(x=a12['posId'][p5000], y=a12['posIq'][p5000], mode='lines+markers', marker=dict(size=3, color='lightblue', symbol='circle', line=dict(width=3,color='green'))))
-    fig.add_trace(go.Scatter(x=a12['negId'][n6000], y=a12['negIq'][n6000], mode='lines+markers', marker=dict(size=3, color='purple', symbol='circle', line=dict(width=3,color='red'))))
-    fig.add_trace(go.Scatter(x=a12['posId'][p6000], y=a12['posIq'][p6000], mode='lines+markers', marker=dict(size=3, color='magenta', symbol='circle', line=dict(width=3,color='green'))))
-    fig.add_trace(go.Scatter(x=a12['negId'][n8000], y=a12['negIq'][n8000], mode='lines+markers', marker=dict(size=3, color='lime', symbol='circle', line=dict(width=3,color='red'))))
-    fig.add_trace(go.Scatter(x=a12['posId'][p8000], y=a12['posIq'][p8000], mode='lines+markers', marker=dict(size=3, color='orange', symbol='circle', line=dict(width=3,color='green'))))
-    fig.add_trace(go.Scatter(x=a12['negId'][n10000], y=a12['negIq'][n10000], mode='lines+markers', marker=dict(size=3, color='royalblue', symbol='circle', line=dict(width=3,color='red'))))
-    fig.add_trace(go.Scatter(x=a12['posId'][p10000], y=a12['posIq'][p10000], mode='lines+markers', marker=dict(size=3, color='brown', symbol='circle', line=dict(width=3,color='green'))))
+    fig.add_trace(go.Scatter(x=a12['negId'][n4000], y=a12['negIq'][n4000],name="N4000rpm", mode='lines+markers', marker=dict(size=3, color='green', symbol='circle', line=dict(width=3, color='red'))))
+    fig.add_trace(go.Scatter(x=a12['posId'][p4000], y=a12['posIq'][p4000],name="P4000rpm", mode='lines+markers', marker=dict(size=3, color='black', symbol='circle', line=dict(width=3, color='green'))))
+    fig.add_trace(go.Scatter(x=a12['negId'][n5000], y=a12['negIq'][n5000],name="N5000rpm", mode='lines+markers', marker=dict(size=3, color='yellow', symbol='circle', line=dict(width=3,color='red'))))
+    fig.add_trace(go.Scatter(x=a12['posId'][p5000], y=a12['posIq'][p5000],name="P5000rpm", mode='lines+markers', marker=dict(size=3, color='lightblue', symbol='circle', line=dict(width=3,color='green'))))
+    fig.add_trace(go.Scatter(x=a12['negId'][n6000], y=a12['negIq'][n6000],name="N6000rpm", mode='lines+markers', marker=dict(size=3, color='purple', symbol='circle', line=dict(width=3,color='red'))))
+    fig.add_trace(go.Scatter(x=a12['posId'][p6000], y=a12['posIq'][p6000],name="P6000rpm", mode='lines+markers', marker=dict(size=3, color='magenta', symbol='circle', line=dict(width=3,color='green'))))
+    fig.add_trace(go.Scatter(x=a12['negId'][n8000], y=a12['negIq'][n8000],name="N8000rpm", mode='lines+markers', marker=dict(size=3, color='lime', symbol='circle', line=dict(width=3,color='red'))))
+    fig.add_trace(go.Scatter(x=a12['posId'][p8000], y=a12['posIq'][p8000],name="P8000rpm", mode='lines+markers', marker=dict(size=3, color='orange', symbol='circle', line=dict(width=3,color='green'))))
+    fig.add_trace(go.Scatter(x=a12['negId'][n10000], y=a12['negIq'][n10000],name="N10000rpm", mode='lines+markers', marker=dict(size=3, color='royalblue', symbol='circle', line=dict(width=3,color='red'))))
+    fig.add_trace(go.Scatter(x=a12['posId'][p10000], y=a12['posIq'][p10000],name="P10000rpm", mode='lines+markers', marker=dict(size=3, color='brown', symbol='circle', line=dict(width=3,color='green'))))
  
     # Customize the layout
     #  fig.update_layout(showlegend=False)
     fig.update_layout(
         xaxis_title='Id',
         yaxis_title='Iq',
-        title='Efficiency MAP on Power graph',
-        title_font={'size': 12,'color': 'white'},
+        title='A12 Id/Iq',
+        title_font={'size': 15,'color': 'white'},
         xaxis=dict( showline=False, showgrid=False,zeroline=False),
         yaxis=dict(showline=False, showgrid=False,zeroline=False,),
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
@@ -1012,7 +1012,8 @@ def efficiency_map(condition_value='None'):
         xaxis_tickfont=dict(color="white"),     # Set x-axis tick labels color to white
         yaxis_tickfont=dict(color="white"),     # Set y-axis tick labels color to white
         xaxis_title_font=dict(color="white"),
-        showlegend=True
+        showlegend=True,
+        legend=dict(x=1.00, y=0.3, orientation='v' , font=dict(color='white'))
     )
     # if condition_value == '2':
     #     fig.update_layout(showlegend=True,height=800, legend=dict(x=1.00, y=0.3, orientation='v' , font=dict(color='white')),)
@@ -1049,10 +1050,10 @@ def IdIqControlMapByTemp(condition_value='None'):
     ipm.plaIq = np.array( ipm.plaIq)
     # Create traces
     traces = []
-   
+    leg=arr[1:14] 
     # Plotting temperature data
     for ind in range(13):
-        traces.append(go.Scatter(x=tmpId[ind, :],y=tmpIq[ind, :],mode='markers',marker=dict(size=6)))
+        traces.append(go.Scatter(x=tmpId[ind, :],y=tmpIq[ind, :],name=leg[ind],mode='markers',marker=dict(size=6)))
     # Plotting other data
     traces.append(go.Scatter(x= ipm.plaId[0, :],y=ipm.plaIq[0, :],mode='lines+markers',name='S-1k',marker=dict(size=7),line=dict(dash='solid')))
     traces.append(go.Scatter(x= ipm.plaId[1, :],y=ipm.plaIq[1, :],mode='lines+markers',name='S-2k',marker=dict(size=7),line=dict(dash='solid')))
@@ -1075,7 +1076,7 @@ def IdIqControlMapByTemp(condition_value='None'):
     # Create figure
     fig = go.Figure(data=traces, layout=layout)
     fig.update_layout(
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis=dict(showline=False, showgrid=False,zeroline=False,range=[-800, 0], tick0=0,dtick=200),
@@ -1144,7 +1145,7 @@ def IdIqControlMapByTorque(condition_value='None'):
         yaxis=dict(range=[0, 600], tick0=0, dtick=100)
     )
     fig.update_layout(
-            title_font={'size': 12,'color': 'white'},
+            title_font={'size': 15,'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             xaxis=dict(showline=False, showgrid=False,zeroline=False),
@@ -1249,7 +1250,7 @@ def Ploss_lmc(condition_value='None'):
     # Update layout
     fig.update_layout(title='Ploss vs Id', xaxis_title='plaId', yaxis_title='plaPL', showlegend=False)
     fig.update_layout(
-        title_font={'size': 12, 'color': 'white'},
+        title_font={'size': 15, 'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis=dict(title='Iq',showline=False, showgrid=False,zeroline=False),
@@ -1454,7 +1455,7 @@ def SpeedAccelDecel(condition_value='None' ):
                 showlegend=False,
                 )
     if condition_value=="2":
-        fig.update_layout(showlegend=True,legend=dict(x=1.03, y=0.6, orientation='v', font=dict(color='white')))
+        fig.update_layout(showlegend=True, title_font={'size': 15,'color': 'white'},legend=dict(x=1.03, y=0.6, orientation='v', font=dict(color='white')))
     # Show the figure
     return fig
  
@@ -1517,7 +1518,7 @@ def effMapTn(condition_value='None') :
  
     # # Show the plot
     if condition_value == '2':
-        fig.update_layout(showlegend=True,legend=dict(x=1.03, y=0.6, orientation='v', font=dict(color='white')))
+        fig.update_layout(showlegend=True, title_font={'size': 15,'color': 'white'},legend=dict(x=1.03, y=0.6, orientation='v', font=dict(color='white')))
     # else:
     #     fig.update_layout(showlegend=False, height=400)
  
@@ -1549,7 +1550,7 @@ def piegraph(condition_value='None'):
     )
    
     if condition_value == '2':
-        fig.update_layout(showlegend=True, legend=dict(x=1.00, y=0.3, orientation='v' , font=dict(color='white')),)
+        fig.update_layout(showlegend=True, title_font={'size': 15,'color': 'white'}, legend=dict(x=1.00, y=0.3, orientation='v' , font=dict(color='white')),)
     # else:
     #     fig.update_layout(showlegend=False,height=400)
     return fig
@@ -1594,7 +1595,7 @@ def wltc_btt( condition_value='None'):
         showlegend=False
     )
     if condition_value == '2':
-        fig.update_layout(showlegend=True, legend=dict(x=1.01, y=0.3, orientation='v' , font=dict(color='white')),)
+        fig.update_layout(showlegend=True,  title_font={'size': 15,'color': 'white'},legend=dict(x=1.01, y=0.3, orientation='v' , font=dict(color='white')),)
     # else:
     #     fig.update_layout(showlegend=False,height=400)
     return fig
@@ -1649,95 +1650,95 @@ def effPower(condition_value='None'):
         showlegend=False,
     )
     if condition_value == '2':
-        fig.update_layout(showlegend=True, legend=dict(x=1.01, y=0.3, orientation='v' , font=dict(color='white')),)
+        fig.update_layout(showlegend=True,  title_font={'size': 15,'color': 'white'},legend=dict(x=1.01, y=0.3, orientation='v' , font=dict(color='white')),)
  
     return fig
     # Show the plot
  
  
-def IdIqAvatarA12( condition_value='None'):
-    global a12,gt
+# def IdIqAvatarA12( condition_value='None'):
+#     global a12,gt
  
-    p5000 = np.where(np.array(a12['prpm']) == 5000)[0]
-    n5000 = np.where(np.array(a12['nrpm']) == 5000)[0]
-    p10000 = np.where(np.array(a12['prpm']) == 10000)[0]
-    n10000 = np.where(np.array(a12['nrpm']) == 10000)[0]
+#     p5000 = np.where(np.array(a12['prpm']) == 5000)[0]
+#     n5000 = np.where(np.array(a12['nrpm']) == 5000)[0]
+#     p10000 = np.where(np.array(a12['prpm']) == 10000)[0]
+#     n10000 = np.where(np.array(a12['nrpm']) == 10000)[0]
  
-    fig = go.Figure()
+#     fig = go.Figure()
  
-    # # Add the data traces
-    if condition_value=="1":
-        fig.add_trace(go.Scatter(x=gt['MaId'], y=gt['MaIq'], mode='markers', marker=dict(color='rgb(162,20,47)', size=2), name='G-MTPA'))
-        fig.add_trace(go.Scatter(x=gt['CId'], y=gt['CIq'], mode='markers', marker=dict(color='rgb(119,172,48)', size=2), name='G-CPSR'))
-        fig.add_trace(go.Scatter(x=gt['MvId'], y=gt['MvIq'], mode='markers', marker=dict(color='blue', size=2), name='G-MTPV'))
- 
- 
-        fig.add_trace(go.Scatter(x=a12['posId'], y=a12['posIq'], mode='markers', name='A12-Posi', marker=dict(color='black', symbol='triangle-up', size=2)))
-        fig.add_trace(go.Scatter(x=a12['negId'], y=a12['negIq'], mode='markers', name='A12-Nega', marker=dict(color='red', symbol='triangle-up', size=2)))
-        fig.add_trace(go.Scatter(x=a12['negId'][n5000], y=a12['negIq'][n5000], mode='lines+markers', name='N-5000rpm', line=dict(width=2)))
-        fig.add_trace(go.Scatter(x=a12['posId'][p5000], y=a12['posIq'][p5000], mode='lines+markers', name='P-5000rpm', line=dict(width=2)))
-        fig.add_trace(go.Scatter(x=a12['negId'][n10000], y=a12['negIq'][n10000], mode='lines+markers', name='N-10000rpm', line=dict(width=2)))
-        fig.add_trace(go.Scatter(x=a12['posId'][p10000], y=a12['posIq'][p10000], mode='lines+markers', name='P-10000rpm', line=dict(width=2)))
- 
-        for i in range(4):
-            fig.add_trace(go.Scatter(x=ipm.plaId[i, :], y=ipm.plaIq[i, :], mode='lines+markers', marker=dict(size=4), name=f'S-{i+1}k'))
- 
-        fig.add_trace(go.Scatter(x=np.real(dp.ctId[:19]), y=np.real(dp.ctIq[:19]), mode='lines+markers', name='Tn-50', marker=dict(size=2, line=dict(width=2))))
-        fig.add_trace(go.Scatter(x=np.real(dp.ctId[19:38]), y=np.real(dp.ctIq[19:38]), mode='lines+markers', name='Tn-100', line=dict(width=2), marker=dict(size=6)))
-        fig.add_trace(go.Scatter(x=np.real(dp.ctId[38:57]), y=np.real(dp.ctIq[38:57]), mode='lines+markers', name='Tn-200', line=dict(width=2), marker=dict(size=6)))
-        fig.add_trace(go.Scatter(x=np.real(dp.ctId[57:76]), y=np.real(dp.ctIq[57:76]), mode='lines+markers', name='Tn-300',line=dict(width=2), marker=dict(size=6)))
- 
-    if condition_value=="2":
-        fig.add_trace(go.Scatter(x=gt['MaId'], y=gt['MaIq'], mode='markers', marker=dict(color='rgb(162,20,47)', size=4), name='G-MTPA'))
-        fig.add_trace(go.Scatter(x=gt['CId'], y=gt['CIq'], mode='markers', marker=dict(color='rgb(119,172,48)', size=4), name='G-CPSR'))
-        fig.add_trace(go.Scatter(x=gt['MvId'], y=gt['MvIq'], mode='markers', marker=dict(color='blue', size=4), name='G-MTPV'))
+#     # # Add the data traces
+#     if condition_value=="1":
+#         fig.add_trace(go.Scatter(x=gt['MaId'], y=gt['MaIq'], mode='markers', marker=dict(color='rgb(162,20,47)', size=2), name='G-MTPA'))
+#         fig.add_trace(go.Scatter(x=gt['CId'], y=gt['CIq'], mode='markers', marker=dict(color='rgb(119,172,48)', size=2), name='G-CPSR'))
+#         fig.add_trace(go.Scatter(x=gt['MvId'], y=gt['MvIq'], mode='markers', marker=dict(color='blue', size=2), name='G-MTPV'))
  
  
-        fig.add_trace(go.Scatter(x=a12['posId'], y=a12['posIq'], mode='markers', name='A12-Posi', marker=dict(color='black', symbol='triangle-up', size=4)))
-        fig.add_trace(go.Scatter(x=a12['negId'], y=a12['negIq'], mode='markers', name='A12-Nega', marker=dict(color='red', symbol='triangle-up', size=4)))
-        fig.add_trace(go.Scatter(x=a12['negId'][n5000], y=a12['negIq'][n5000], mode='lines+markers', name='N-5000rpm', line=dict(width=4)))
-        fig.add_trace(go.Scatter(x=a12['posId'][p5000], y=a12['posIq'][p5000], mode='lines+markers', name='P-5000rpm', line=dict(width=4)))
-        fig.add_trace(go.Scatter(x=a12['negId'][n10000], y=a12['negIq'][n10000], mode='lines+markers', name='N-10000rpm', line=dict(width=4)))
-        fig.add_trace(go.Scatter(x=a12['posId'][p10000], y=a12['posIq'][p10000], mode='lines+markers', name='P-10000rpm', line=dict(width=4)))
+#         fig.add_trace(go.Scatter(x=a12['posId'], y=a12['posIq'], mode='markers', name='A12-Posi', marker=dict(color='black', symbol='triangle-up', size=2)))
+#         fig.add_trace(go.Scatter(x=a12['negId'], y=a12['negIq'], mode='markers', name='A12-Nega', marker=dict(color='red', symbol='triangle-up', size=2)))
+#         fig.add_trace(go.Scatter(x=a12['negId'][n5000], y=a12['negIq'][n5000], mode='lines+markers', name='N-5000rpm', line=dict(width=2)))
+#         fig.add_trace(go.Scatter(x=a12['posId'][p5000], y=a12['posIq'][p5000], mode='lines+markers', name='P-5000rpm', line=dict(width=2)))
+#         fig.add_trace(go.Scatter(x=a12['negId'][n10000], y=a12['negIq'][n10000], mode='lines+markers', name='N-10000rpm', line=dict(width=2)))
+#         fig.add_trace(go.Scatter(x=a12['posId'][p10000], y=a12['posIq'][p10000], mode='lines+markers', name='P-10000rpm', line=dict(width=2)))
  
-        for i in range(4):
-            fig.add_trace(go.Scatter(x=ipm.plaId[i, :], y=ipm.plaIq[i, :], mode='lines+markers', marker=dict(size=4), name=f'S-{i+1}k'))
+#         for i in range(4):
+#             fig.add_trace(go.Scatter(x=ipm.plaId[i, :], y=ipm.plaIq[i, :], mode='lines+markers', marker=dict(size=4), name=f'S-{i+1}k'))
  
-        fig.add_trace(go.Scatter(x=np.real(dp.ctId[:19]), y=np.real(dp.ctIq[:19]), mode='lines+markers', name='Tn-50', marker=dict(size=4, line=dict(width=2))))
-        fig.add_trace(go.Scatter(x=np.real(dp.ctId[19:38]), y=np.real(dp.ctIq[19:38]), mode='lines+markers', name='Tn-100', line=dict(width=4), marker=dict(size=6)))
-        fig.add_trace(go.Scatter(x=np.real(dp.ctId[38:57]), y=np.real(dp.ctIq[38:57]), mode='lines+markers', name='Tn-200', line=dict(width=4), marker=dict(size=6)))
-        fig.add_trace(go.Scatter(x=np.real(dp.ctId[57:76]), y=np.real(dp.ctIq[57:76]), mode='lines+markers', name='Tn-300',line=dict(width=4), marker=dict(size=6)))
-    # Set labels for axes
-    fig.update_layout(xaxis_title='Id (A)', yaxis_title='Iq (A)')
-    fig.update_xaxes(title_font=dict(color='purple', size=12))
-    fig.update_yaxes(title_font=dict(color='purple', size=12))
+#         fig.add_trace(go.Scatter(x=np.real(dp.ctId[:19]), y=np.real(dp.ctIq[:19]), mode='lines+markers', name='Tn-50', marker=dict(size=2, line=dict(width=2))))
+#         fig.add_trace(go.Scatter(x=np.real(dp.ctId[19:38]), y=np.real(dp.ctIq[19:38]), mode='lines+markers', name='Tn-100', line=dict(width=2), marker=dict(size=6)))
+#         fig.add_trace(go.Scatter(x=np.real(dp.ctId[38:57]), y=np.real(dp.ctIq[38:57]), mode='lines+markers', name='Tn-200', line=dict(width=2), marker=dict(size=6)))
+#         fig.add_trace(go.Scatter(x=np.real(dp.ctId[57:76]), y=np.real(dp.ctIq[57:76]), mode='lines+markers', name='Tn-300',line=dict(width=2), marker=dict(size=6)))
  
-    # Set axis limits
-    fig.update_xaxes(range=[-700, 0], dtick=100)
-    fig.update_yaxes(range=[0, 700], dtick=100)
+#     if condition_value=="2":
+#         fig.add_trace(go.Scatter(x=gt['MaId'], y=gt['MaIq'], mode='markers', marker=dict(color='rgb(162,20,47)', size=4), name='G-MTPA'))
+#         fig.add_trace(go.Scatter(x=gt['CId'], y=gt['CIq'], mode='markers', marker=dict(color='rgb(119,172,48)', size=4), name='G-CPSR'))
+#         fig.add_trace(go.Scatter(x=gt['MvId'], y=gt['MvIq'], mode='markers', marker=dict(color='blue', size=4), name='G-MTPV'))
  
-    # Set the title
-    fig.update_layout(title='Id Iq control Map of Avatar IPM and A12 ')
  
-    fig.update_layout(
-        title_font={'size': 12,'color': 'white'},
-        paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
-        plot_bgcolor="rgba(0,0,0,0)",
-        xaxis=dict(title='Id(A)', showline=False, showgrid=False,zeroline=False),
-        yaxis=dict(title='Iq(A)',showline=False, showgrid=False,zeroline=False,),
-        # showlegend=False,
-        autosize=True,   # Set plot background color to transparent
-        yaxis_title_font=dict(color="white"),  # Set y-axis title color to white
-        xaxis_tickfont=dict(color="white"),     # Set x-axis tick labels color to white
-        yaxis_tickfont=dict(color="white"),     # Set y-axis tick labels color to white
-        xaxis_title_font=dict(color="white"),
-        showlegend=False,
-    )
+#         fig.add_trace(go.Scatter(x=a12['posId'], y=a12['posIq'], mode='markers', name='A12-Posi', marker=dict(color='black', symbol='triangle-up', size=4)))
+#         fig.add_trace(go.Scatter(x=a12['negId'], y=a12['negIq'], mode='markers', name='A12-Nega', marker=dict(color='red', symbol='triangle-up', size=4)))
+#         fig.add_trace(go.Scatter(x=a12['negId'][n5000], y=a12['negIq'][n5000], mode='lines+markers', name='N-5000rpm', line=dict(width=4)))
+#         fig.add_trace(go.Scatter(x=a12['posId'][p5000], y=a12['posIq'][p5000], mode='lines+markers', name='P-5000rpm', line=dict(width=4)))
+#         fig.add_trace(go.Scatter(x=a12['negId'][n10000], y=a12['negIq'][n10000], mode='lines+markers', name='N-10000rpm', line=dict(width=4)))
+#         fig.add_trace(go.Scatter(x=a12['posId'][p10000], y=a12['posIq'][p10000], mode='lines+markers', name='P-10000rpm', line=dict(width=4)))
+ 
+#         for i in range(4):
+#             fig.add_trace(go.Scatter(x=ipm.plaId[i, :], y=ipm.plaIq[i, :], mode='lines+markers', marker=dict(size=4), name=f'S-{i+1}k'))
+ 
+#         fig.add_trace(go.Scatter(x=np.real(dp.ctId[:19]), y=np.real(dp.ctIq[:19]), mode='lines+markers', name='Tn-50', marker=dict(size=4, line=dict(width=2))))
+#         fig.add_trace(go.Scatter(x=np.real(dp.ctId[19:38]), y=np.real(dp.ctIq[19:38]), mode='lines+markers', name='Tn-100', line=dict(width=4), marker=dict(size=6)))
+#         fig.add_trace(go.Scatter(x=np.real(dp.ctId[38:57]), y=np.real(dp.ctIq[38:57]), mode='lines+markers', name='Tn-200', line=dict(width=4), marker=dict(size=6)))
+#         fig.add_trace(go.Scatter(x=np.real(dp.ctId[57:76]), y=np.real(dp.ctIq[57:76]), mode='lines+markers', name='Tn-300',line=dict(width=4), marker=dict(size=6)))
+#     # Set labels for axes
+#     fig.update_layout(xaxis_title='Id (A)', yaxis_title='Iq (A)')
+#     fig.update_xaxes(title_font=dict(color='purple', size=12))
+#     fig.update_yaxes(title_font=dict(color='purple', size=12))
+ 
+#     # Set axis limits
+#     fig.update_xaxes(range=[-700, 0], dtick=100)
+#     fig.update_yaxes(range=[0, 700], dtick=100)
+ 
+#     # Set the title
+#     fig.update_layout(title='Id Iq control Map of Avatar IPM and A12 ')
+ 
+#     fig.update_layout(
+#         title_font={'size': 12,'color': 'white'},
+#         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
+#         plot_bgcolor="rgba(0,0,0,0)",
+#         xaxis=dict(title='Id(A)', showline=False, showgrid=False,zeroline=False),
+#         yaxis=dict(title='Iq(A)',showline=False, showgrid=False,zeroline=False,),
+#         # showlegend=False,
+#         autosize=True,   # Set plot background color to transparent
+#         yaxis_title_font=dict(color="white"),  # Set y-axis title color to white
+#         xaxis_tickfont=dict(color="white"),     # Set x-axis tick labels color to white
+#         yaxis_tickfont=dict(color="white"),     # Set y-axis tick labels color to white
+#         xaxis_title_font=dict(color="white"),
+#         showlegend=False,
+#     )
      
-    if condition_value == '2':
-        fig.update_layout(showlegend=True, legend=dict(x=1.01, y=0.3, orientation='v' , font=dict(color='white')),)
-    # Show the plot
-    return fig
+#     if condition_value == '2':
+#         fig.update_layout(showlegend=True, legend=dict(x=1.01, y=0.3, orientation='v' , font=dict(color='white')),)
+#     # Show the plot
+#     return fig
 
 #cruising
 
@@ -1820,7 +1821,7 @@ def CruisingdistanceandbatterybysimulationandpoleButtonPushed():
    
     fig.add_trace(go.Scatter(x=list(range(len(crusdist))), y=np.abs(crusdist), name='Cruising Distance', mode='lines+markers', marker=dict(color='yellow', size=10), line=dict(color='red'),yaxis='y2'))
     fig.update_yaxes(range=[420, 490],dtick=10, secondary_y=True)
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
     # fig.show()
     return fig
 
@@ -1906,7 +1907,7 @@ def CruisingdistanceandbatterybysimulationmodelButtonPushed():
     print("crusdist",crusdist)    
     fig.add_trace(go.Scatter(x=list(range(len(crusdist))), y=crusdist, name='Cruising Distance', mode='lines+markers', marker=dict(color='yellow', size=10), line=dict(color='red'),yaxis='y2'))
     fig.update_yaxes(range=[395, 425],dtick=5, secondary_y=True)
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
     # fig.show()
     return fig
 def CruisingdistanceandbatterybygearratioButtonPushed():
@@ -1970,7 +1971,7 @@ def CruisingdistanceandbatterybygearratioButtonPushed():
     print("bttcon1",bttcon)
     print("crusdist1",crusdist)    
     fig.add_trace(go.Scatter(x=gdrArr, y=crusdist, name='Cruising Distance', mode='lines+markers', marker=dict(color='yellow', size=10), line=dict(color='red'), yaxis='y2'))
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
     # fig.show()
     return fig
 
@@ -2056,7 +2057,7 @@ def CruisingdistanceandbatterybyIdcButtonPushed():
     )
 
     fig.add_trace(go.Scatter(x=ImArr, y=crusdist, name='Cruising Distance', mode='lines+markers', marker=dict(color='yellow', size=10), line=dict(color='red'), yaxis='y2'))
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
     # fig.show()
     return fig
 
@@ -2109,7 +2110,7 @@ def CruisingdistanceandbatterybyTireinchButtonPushed():
     )
 
     fig.add_trace(go.Scatter(x=inchArr, y=crusdist, name='Cruising Distance', mode='lines+markers', marker=dict(color='yellow', size=10), line=dict(color='red'), yaxis='y2'))
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
 
     return fig
 
@@ -2258,7 +2259,7 @@ def IdIqcontrolMapButtonPushed( ):
     fig.update_layout(title='Id Iq control Map of Avatar IPM and A12 ')
 
     fig.update_layout(
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis=dict(title='Id(A)', showline=False, showgrid=False,zeroline=False),
@@ -2269,7 +2270,8 @@ def IdIqcontrolMapButtonPushed( ):
         xaxis_tickfont=dict(color="white"),     # Set x-axis tick labels color to white
         yaxis_tickfont=dict(color="white"),     # Set y-axis tick labels color to white
         xaxis_title_font=dict(color="white"),
-        showlegend=False, 
+        showlegend=True,
+        legend=dict(x=1.00, y=0.3, orientation='v' , font=dict(color='white')) 
     )
      
 
@@ -3540,7 +3542,7 @@ input_contents = [
                     ),
                     dmc.CardSection(
                         dmc.Flex([
-                            dmc.Image(src="assets/images/evmotor.png", h=150, w=200),
+                            dmc.Image(src="assets/images/Motor.png", h=120, w=200),
                         ], justify="center", align="center",style={"height": "150px"}),
                         withBorder=True,
                         inheritPadding=True,
@@ -3622,7 +3624,7 @@ input_contents = [
                     ),
                     dmc.CardSection(
                         dmc.Flex([
-                            dmc.Image(src="assets/images/inverter.png", h=150, w=200),
+                            dmc.Image(src="assets/images/Inverter.png", h=120, w=200),
                         ], justify="center", align="center",style={"height": "150px"}),
                         withBorder=True,
                         inheritPadding=True,
@@ -3705,7 +3707,7 @@ input_contents = [
                     ),
                     dmc.CardSection(
                         dmc.Flex([
-                            dmc.Image(src="assets/images/battery.png", h=150, w=200),
+                            dmc.Image(src="assets/images/Battery.png", h=120, w=200),
                         ], justify="center", align="center",style={"height": "150px"}),
                         withBorder=True,
                         inheritPadding=True,
@@ -3787,7 +3789,7 @@ input_contents = [
                     ),
                     dmc.CardSection(
                         dmc.Flex([
-                            dmc.Image(src="assets/images/gear.png", h=150, w=200),
+                            dmc.Image(src="assets/images/Gear.png", h=120, w=200),
                         ], justify="center", align="center",style={"height": "150px"}),
                         withBorder=True,
                         inheritPadding=True,
@@ -3869,7 +3871,7 @@ input_contents = [
                     ),
                     dmc.CardSection(
                         dmc.Flex([
-                            dmc.Image(src="assets/images/tire.png", h=150, w=200),
+                            dmc.Image(src="assets/images/Tire.png", h=100, w=200),
                         ], justify="center", align="center",style={"height": "150px"}),
                         withBorder=True,
                         inheritPadding=True,
@@ -3951,7 +3953,7 @@ input_contents = [
                     ),
                     dmc.CardSection(
                         dmc.Flex([
-                            dmc.Image(src="assets/images/body.png", h=150, w=200),
+                            dmc.Image(src="assets/images/Vehicle.png", h=120, w=200),
                         ], justify="center", align="center",style={"height": "150px"}),
                         withBorder=True,
                         inheritPadding=True,
@@ -4071,6 +4073,196 @@ input_contents = [
         ]),
     ],direction="column")
 ]
+
+table_body_ipm= dmc.TableTbody(children=[
+    dmc.TableTr([
+        dmc.Tooltip(
+            label="Represents urban driving conditions with frequent stops and low speeds",
+            children= dmc.TableTd("MaxSpeed", style={"color":"white" }),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ), 
+        
+        dmc.TableTd(dmc.NumberInput(   value=10000,className="rounded-inputvalipm",hideControls="True",disabled=True,id="EffMaxSpeed",style={"backgroundColor":"#a6a6a6"})),
+        dmc.Tooltip(
+            label="Represents urban driving conditions with frequent stops and low speeds",
+            children=dmc.TableTd("MaxSpeed (Max LUT)rpm", style={"color":"white",  "borderRadius": "5px"}),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ), 
+        dmc.TableTd(dmc.NumberInput(   value=20000,className="rounded-inputvalipm",hideControls="True",disabled=True,id="MaxSpeedRpmEditField",style={"backgroundColor":"#a6a6a6"}))
+    ]),
+        dmc.TableTr([
+        dmc.TableTd("Initial", style={"color":"white", }),
+        dmc.TableTd(dmc.NumberInput(  value=0.0001,className="rounded-inputvalipm",hideControls="True",id="InitialEditField",disabled=True,style={"backgroundColor":"#a6a6a6"})),
+        dmc.Tooltip(
+            label="Temperature of the motor at the moment it begins operation.",
+            children=  dmc.TableTd("Ini.Temp", style={"color":"white","textAlign": "center" }),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ),
+        dmc.TableTd(dmc.NumberInput(   value=75,className="rounded-inputvalipm",hideControls="True",id="InitempEditField",disabled=True,style={"backgroundColor":"#a6a6a6"}))
+    ]),
+        dmc.TableTr([
+        dmc.TableTd("Increment", style={"color":"white",  }),
+        dmc.TableTd(dmc.NumberInput(   value=200,className="rounded-inputvalipm",hideControls="True",id="IncrementEditField",disabled=True,style={"backgroundColor":"#a6a6a6"})),
+        dmc.Tooltip(
+           label=" Temperature range considered comfortable for human living environments.",
+            children=  dmc.TableTd("Room Temp", style={"color":"white","textAlign": "center" }),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ),
+       
+        dmc.TableTd(dmc.NumberInput(  value=23,className="rounded-inputvalipm",hideControls="True",id="RoomTempEditField",disabled=True,style={"backgroundColor":"#a6a6a6"}))
+    ])
+])
+
+table_drive_input= dmc.TableTbody(children=[
+    dmc.TableTr([
+        dmc.Tooltip(
+            label="The acceleration due to gravity is the force that pulls objects towards the earth",
+            children= dmc.TableTd("Gravity", style={"color":"white"}),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ), 
+        dmc.TableTd(dmc.NumberInput(   value=9.81,className="rounded-inputvalipm",hideControls="True",disabled=True,id="GravityEditField",style={"backgroundColor":"#a6a6a6",})),
+        dmc.TableTd("m..", style={"color":"white" }),
+        dmc.TableTd(
+        dmc.Text("Cruising Pattern",size="sm", c="white", style={
+            "width": "109px",
+            "border": "1px ",  # Adjust the border color and thickness as needed
+            "backgroundColor": "#7d2e8f",  # Set the background color to red
+            "padding": "5px",  # Optional: add padding for better appearance
+            "borderRadius": "8px" , # Optional: make the corners rounded
+            # "marginBottom":"5px",
+           
+        }),
+        ),    
+        dmc.TableTd( dmc.Select(
+                                value="2",
+                                data=[
+                                    {"value": "1", "label": "NEDC"},
+                                    {"value": "2", "label": "WLTC"},
+                                    {"value": "3", "label": "CLTC"},
+                                    {"value": "4", "label": "FTP75"},
+                                ],
+                                w=90,
+                                # mb=10,
+                                id='CrusPtnDropDown',
+                            ),)
+    ]),
+    dmc.TableTr([
+        dmc.Tooltip(
+            label="Head wind is the speed of the wind blowing directly against the direction of the vehicle’s motion.",
+            children= dmc.TableTd("Head Wind", style={"color":"white" }),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ), 
+        dmc.TableTd(dmc.NumberInput(   value=0,className="rounded-inputvalipm",hideControls="True",disabled=True,id="VWindEditField",style={"backgroundColor":"#a6a6a6"})),
+        dmc.TableTd("k..", style={"color":"white" }),
+                dmc.Tooltip(
+            label="The drag coefficient is a dimensionless number representing the vehicle’s aerodynamic efficiency",
+            children= dmc.TableTd("Drag Coeff", style={"color":"white" }),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ), 
+        dmc.TableTd(dmc.NumberInput(   value=0.25,className="rounded-inputvalipm",hideControls="True",disabled=True,id="CdEditField",style={"backgroundColor":"#a6a6a6"})),     
+    ]),
+    dmc.TableTr([
+        dmc.Tooltip(
+            label="The frontal area is the cross-sectional area of the vehicle facing the airflow.",
+            children= dmc.TableTd("Frontial Area", style={"color":"white" }),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ), 
+        dmc.TableTd(dmc.NumberInput(   value=1.5,className="rounded-inputvalipm",hideControls="True",disabled=True,id="AfEditField",style={"backgroundColor":"#a6a6a6"})),
+        dmc.TableTd("m^2", style={"color":"white" }),
+                dmc.Tooltip(
+            label="Slip ratio is the difference between the rotational speed of the tire and the actual speed of the vehicle.",
+            children= dmc.TableTd("Slip Ratio", style={"color":"white","textAlign": "center"}),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ), 
+        dmc.TableTd(dmc.NumberInput(   value=0.02,className="rounded-inputvalipm",hideControls="True",disabled=True,id="sxEditField",style={"backgroundColor":"#a6a6a6"})),     
+    ]),
+    dmc.TableTr([
+        dmc.Tooltip(
+            label="Air density is mass per unit volume of air.",
+            children= dmc.TableTd("Air Density", style={"color":"white" }),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ), 
+        dmc.TableTd(dmc.NumberInput(   value=1.225,className="rounded-inputvalipm",hideControls="True",disabled=True,id="pEditField",style={"backgroundColor":"#a6a6a6"})),
+        dmc.TableTd("k..", style={"color":"white" }),
+                dmc.Tooltip(
+            label="Transmission efficiency is the ratio of the output power to the input power of the transmission system.",
+            children= dmc.TableTd("Trans Eff", style={"color":"white",  }),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ), 
+        dmc.TableTd(dmc.NumberInput(   value=0.98,className="rounded-inputvalipm",hideControls="True",disabled=True,id="ndrEditField",style={"backgroundColor":"#a6a6a6"})),     
+    ]),
+    dmc.TableTr([
+        dmc.Tooltip(
+            label="Road grade refers to the slope or incline of the road",
+            children= dmc.TableTd("Road Grade", style={"color":"white" }),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ), 
+        dmc.TableTd(dmc.NumberInput(   value=0,className="rounded-inputvalipm",hideControls="True",disabled=True,id="RoadGradeEditField",style={"backgroundColor":"#a6a6a6"})),
+        dmc.TableTd(),
+        dmc.Tooltip(
+            label="Rolling resistance is the force that opposes the motion of the vehicle as the tire roll over a surface.",
+            children= dmc.TableTd("Rolling Resistance", style={"color":"white" }),
+            position="left",
+            offset=3,multiline=True,w=250,withArrow=True,
+            transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        ), 
+        dmc.TableTd(dmc.NumberInput(   value=0.008,className="rounded-inputvalipm",hideControls="True",disabled=True,id="frEditField",style={"backgroundColor":"#a6a6a6"})), 
+    ]),
+])
+table_head=dmc.TableThead(
+            dmc.TableTr(
+                [
+                    dmc.TableTh("IPM characteristics"),
+                    dmc.TableTh("Value"),
+                    dmc.TableTh("Unit"),
+                ]))
+
+table_ipm_button = dmc.TableTbody(children=[
+    dmc.TableTr([
+        dmc.TableTd(dmc.Button("Torque and Speed Curve", id="trqspd", variant="light", style={"width": "100%"}), style={"width": "50%"}),
+        dmc.TableTd(dmc.Button("TN curve(Nm) & Power(Kw), Im(A), Vm(V)", id="tnpowerim", variant="light",className="rounded-inputgraph"), style={"width": "100%"})
+    ]),
+    dmc.TableTr([
+        dmc.TableTd(dmc.Button("Total Curve", id="totalcurve", variant="light", style={"width": "100%"}), style={"width": "50%"}),
+        dmc.TableTd(dmc.Button("MTPA-Max torque at Irms", id="mtpa", variant="light", style={"width": "100%"}), style={"width": "50%"})
+    ]),
+    dmc.TableTr([
+        dmc.TableTd(dmc.Button("Is(),Vs(),PF Curve", id="isvspf", variant="light", style={"width": "100%"}), style={"width": "50%"}),
+        dmc.TableTd(dmc.Button("A12 Id Iq", id="a12id", variant="light", style={"width": "100%"}), style={"width": "50%"})
+    ]),
+    dmc.TableTr([
+        dmc.TableTd(dmc.Button("Id Iq Map By Temperature", id="idiqtemp", variant="light", style={"width": "100%"}), style={"width": "50%"}),
+        dmc.TableTd(dmc.Button("Temperature Profile", id="tempprof", variant="light", style={"width": "100%"}), style={"width": "50%"})
+    ]),
+    dmc.TableTr([
+        dmc.TableTd(dmc.Button("Temperature Profile", id="tempprof2", variant="light", style={"width": "100%"}), style={"width": "50%"}),
+        dmc.TableTd(dmc.Button("Ploss-LMC", id="plosslmc", variant="light", style={"width": "100%"}), style={"width": "50%"})
+    ])
+])
 
 
 
@@ -4398,82 +4590,91 @@ ipm_tab = dmc.Flex(
         ),
     #     dmc.Divider(variant="solid"),
    
-        dmc.Flex([
-            dmc.Tooltip(
-                    label="Represents urban driving conditions with frequent stops and low speeds",
-                    children= dmc.Text("MaxSpeed", c="white",size="sm",style={"width": "100px"}),
-                    position="left",
-                    # offset=3,multiline=True,w=250,withArrow=True,
-                    # transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                ), 
+        # dmc.Flex([
+        #     dmc.Tooltip(
+        #             label="Represents urban driving conditions with frequent stops and low speeds",
+        #             children= dmc.Text("MaxSpeed", c="white",size="sm",style={"width": "100px"}),
+        #             position="left",
+        #             # offset=3,multiline=True,w=250,withArrow=True,
+        #             # transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        #         ), 
            
-            dmc.NumberInput(value=10000,w=100,hideControls="True",id="EffMaxSpeed",disabled=True,),
-            dmc.Tooltip(
-                label="Represents urban driving conditions with frequent stops and low speeds",
-                children= dmc.Text("MaxSpeed (Max LUT)rpm",size="sm", c="white",style={"width": "100px"}),
-                position="left",offset=3,multiline=True,w=250,withArrow=True,
-                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                ), 
+        #     dmc.NumberInput(value=10000,w=100,hideControls="True",id="EffMaxSpeed",disabled=True,),
+        #     dmc.Tooltip(
+        #         label="Represents urban driving conditions with frequent stops and low speeds",
+        #         children= dmc.Text("MaxSpeed (Max LUT)rpm",size="sm", c="white",style={"width": "100px"}),
+        #         position="left",offset=3,multiline=True,w=250,withArrow=True,
+        #         transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        #         ), 
             
-            dmc.NumberInput(value=20000,w=100,hideControls="True",style={"width": "100px"},id="MaxSpeedRpmEditField",disabled=True)
-        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},),
-        dmc.Flex([
+        #     dmc.NumberInput(value=20000,w=100,hideControls="True",style={"width": "100px"},id="MaxSpeedRpmEditField",disabled=True)
+        # ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},),
+        # dmc.Flex([
 
-            dmc.Text("Initial", c="white",size="sm",style={"width": "100px"}),
-            dmc.NumberInput(value=0.0001,w=100,id="InitialEditField",hideControls="True",disabled=True,),
-            dmc.Tooltip(
-                label="Temperature of the motor at the moment it begins operation.",
-                children=  dmc.Text("Ini. temp", c="white",size="sm",style={"width": "100px"}),
-                position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
-                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                ),            
+        #     dmc.Text("Initial", c="white",size="sm",style={"width": "100px"}),
+        #     dmc.NumberInput(value=0.0001,w=100,id="InitialEditField",hideControls="True",disabled=True,),
+        #     dmc.Tooltip(
+        #         label="Temperature of the motor at the moment it begins operation.",
+        #         children=  dmc.Text("Ini. temp", c="white",size="sm",style={"width": "100px"}),
+        #         position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
+        #         transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        #         ),            
           
-            dmc.NumberInput(value=75,id="InitempEditField",w=100,hideControls="True",style={"width": "100px"},disabled=True,)
-        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},),
-        dmc.Flex([
-            dmc.Text("Increment", c="white",size="sm",style={"width": "100px"}),
-            dmc.NumberInput(value=200,w=100,id="IncrementEditField",hideControls="True",disabled=True,),
-            dmc.Tooltip(
-                label=" Temperature range considered comfortable for human living environments.",
-                children=dmc.Text("Room Temp", c="white",size="sm",style={"width": "100px"}),
-                position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
-                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                ), 
+        #     dmc.NumberInput(value=75,id="InitempEditField",w=100,hideControls="True",style={"width": "100px"},disabled=True,)
+        # ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},),
+        # dmc.Flex([
+        #     dmc.Text("Increment", c="white",size="sm",style={"width": "100px"}),
+        #     dmc.NumberInput(value=200,w=100,id="IncrementEditField",hideControls="True",id="IncrementEditField",disabled=True,),
+        #     dmc.Tooltip(
+        #         label=" Temperature range considered comfortable for human living environments.",
+        #         children=dmc.Text("Room Temp", c="white",size="sm",style={"width": "100px"}),
+        #         position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
+        #         transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+        #         ), 
             
-            dmc.NumberInput(value=23,w=100,id="RoomTempEditField",hideControls="True",style={"width": "100px"},disabled=True,)
-        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},),
+        #     dmc.NumberInput(value=23,w=100,id="RoomTempEditField",hideControls="True",style={"width": "100px"},disabled=True,)
+        # ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},),
+
+        dmc.Table([table_body_ipm],striped=False,highlightOnHover=False, withColumnBorders=False, withTableBorder=True,withRowBorders=False),
         dmc.Table([table_head,table_body],striped=True,highlightOnHover=True, withColumnBorders=True, withTableBorder=True,style={"marginTop":"20px"}),
-        dmc.Flex([
-            dmc.Button("Torque and Speed Curve",id="trqspd", variant="light",style={ "width": "190px" }),
-            # dmc.Button("Torque and Speed Curve",id="trqspd",style={"backgroundColor": "#88a9b8", "color": "black", "width": "190px","whiteSpace": "normal", "overflow": "visible" }),
-            dmc.Button("TN curve(Nm) & Power(Kw), Im(A), Vm(V)", id="tnpowerim", variant="light",style={ "width": "250px"}),
-            dmc.Modal(id="modal-tncurve",fullScreen=True,zIndex=10000, children=[ dcc.Graph(id='graph7',style={'height': '800px'}),],),
-            dmc.Modal(id="modal-tnpowerim",fullScreen=True,zIndex=10000, children=[ dcc.Graph(id='graph8',style={'height': '800px'}),],),
-        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},style={"marginTop":"20px"}),
-        dmc.Flex([
-            dmc.Button("Total Curve", id="totalcurve", variant="light",style={"width": "190px"}),
-            dmc.Button("MTPA-Max torque at Irms", id="mtpa", variant="light", style={ "width": "250px"}),  
-            dmc.Modal(id="modal-totalcurve",fullScreen=True,zIndex=10000,children=[dcc.Graph(id='graph9',style={'height': '800px'}),],),
-            dmc.Modal(id="modal-mtpa",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph10',style={'height': '800px'}),],),
-        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"}),
-        dmc.Flex([
-            dmc.Button("Is(),Vs(),PF Curve", id="isvspf", variant="light",style={"width": "190px"}),
-            dmc.Button("A12 Id Iq",id="a12id" , variant="light", style={ "width": "250px"}),
-            dmc.Modal(id="modal-isvspf",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph11',style={'height': '800px'}),],),
-            dmc.Modal(id="modal-a12id",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph12',style={'height': '800px'}),],),
-        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"}),
-        dmc.Flex([
-            dmc.Button("Id Iq Map By Temperature", id="idiqtemp", variant="light",style={"width": "190px"}),
-            dmc.Button("Id Iq map by Torque",id="idiqtor",  variant="light", style={ "width": "250px"}),
-            dmc.Modal(id="modal-idiqtemp",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph13',style={'height': '800px'}),],),
-            dmc.Modal(id="modal-idiqtor",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph14',style={'height': '800px'}),],),
-        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"v"}),
-        dmc.Flex([
-            dmc.Button("Temperature Profile",  id="tempprof", variant="light",style={"width": "190px"}),
-            dmc.Button("Ploss-LMC",  id="plosslmc", variant="light", style={ "width": "250px"}),
-            dmc.Modal(id="modal-tempprof",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph15',style={'height': '800px'}),],),
-            dmc.Modal(id="modal-plosslmc",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph16',style={'height': '800px'}),],),
-        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"}),
+        dmc.Table([table_ipm_button],striped=False,highlightOnHover=False, withColumnBorders=False, withTableBorder=True,withRowBorders=False),
+        dmc.Modal(id="modal-tncurve",fullScreen=True,zIndex=10000, children=[ dcc.Graph(id='graph7',style={'height': '800px'}),],),
+        dmc.Modal(id="modal-tnpowerim",fullScreen=True,zIndex=10000, children=[ dcc.Graph(id='graph8',style={'height': '800px'}),],),
+        dmc.Modal(id="modal-totalcurve",fullScreen=True,zIndex=10000,children=[dcc.Graph(id='graph9',style={'height': '800px'}),],),
+        dmc.Modal(id="modal-mtpa",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph10',style={'height': '800px'}),],),
+        dmc.Modal(id="modal-isvspf",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph11',style={'height': '800px'}),],),
+        dmc.Modal(id="modal-a12id",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph12',style={'height': '800px'}),],),
+        dmc.Modal(id="modal-idiqtemp",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph13',style={'height': '800px'}),],),
+        dmc.Modal(id="modal-idiqtor",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph14',style={'height': '800px'}),],),
+        dmc.Modal(id="modal-tempprof",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph15',style={'height': '800px'}),],),
+        dmc.Modal(id="modal-plosslmc",fullScreen=True,zIndex=10000,children=[ dcc.Graph(id='graph16',style={'height': '800px'}),],),
+
+        # dmc.Flex([
+        #     # dmc.Button("Torque and Speed Curve",id="trqspd", variant="light",style={ "width": "190px" }),
+        #     # # dmc.Button("Torque and Speed Curve",id="trqspd",style={"backgroundColor": "#88a9b8", "color": "black", "width": "190px","whiteSpace": "normal", "overflow": "visible" }),
+        #     # dmc.Button("TN curve(Nm) & Power(Kw), Im(A), Vm(V)", id="tnpowerim", variant="light",style={ "width": "250px"}),
+            
+        # ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},style={"marginTop":"20px"}),
+        # dmc.Flex([
+        #     # dmc.Button("Total Curve", id="totalcurve", variant="light",style={"width": "190px"}),
+        #     # dmc.Button("MTPA-Max torque at Irms", id="mtpa", variant="light", style={ "width": "250px"}),  
+            
+        # ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"}),
+        # dmc.Flex([
+        #     # dmc.Button("Is(),Vs(),PF Curve", id="isvspf", variant="light",style={"width": "190px"}),
+        #     # dmc.Button("A12 Id Iq",id="a12id" , variant="light", style={ "width": "250px"}),
+           
+        # ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"}),
+        # dmc.Flex([
+        #     # dmc.Button("Id Iq Map By Temperature", id="idiqtemp", variant="light",style={"width": "190px"}),
+        #     # dmc.Button("Id Iq map by Torque",id="idiqtor",  variant="light", style={ "width": "250px"}),
+            
+        # ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"v"}),
+        # dmc.Flex([
+        #     # dmc.Button("Temperature Profile",  id="tempprof", variant="light",style={"width": "190px"}),
+        #     # dmc.Button("Ploss-LMC",  id="plosslmc", variant="light", style={ "width": "250px"}),
+            
+        # ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"}),
  
  
             ],
@@ -4832,7 +5033,7 @@ driving_tbody=dmc.TableTbody(
             ),
             
             dmc.TableTd(95.970688,id="td-effic"),
-            dmc.TableTd("kW"),])            
+            dmc.TableTd("%"),])            
     ]
 )
 paramter_header = [
@@ -5233,124 +5434,124 @@ drive_pattern=dmc.Flex([
                             ]
                         ),
                     ),
-                    dmc.Flex(
-                        dmc.SimpleGrid(
-                            # spacing={"base": "sm",  "sm": "sm","lg":"sm","md":"sm"},
-                            cols={  "sm":2, "lg": 2},
-                            children=[
+                    # dmc.Flex(
+                    #     dmc.SimpleGrid(
+                    #         # spacing={"base": "sm",  "sm": "sm","lg":"sm","md":"sm"},
+                    #         cols={  "sm":2, "lg": 2},
+                    #         children=[
                             
-                            dmc.Button("Cruising Pattern",variant="gradient",gradient={"from": "teal", "to": "blue", "deg": 60}),
-                            # dmc.Button("<<<<IGBT settings", id="drawer-igbt",style={"backgroundColor": "#88a9b8","color": "black" }),
-                            dmc.Select(
-                                value="2",
-                                data=[
-                                    {"value": "1", "label": "NEDC"},
-                                    {"value": "2", "label": "WLTC"},
-                                    {"value": "3", "label": "CLTC"},
-                                    {"value": "4", "label": "FTP75"},
-                                ],
-                                w=200,
-                                mb=10,
-                                id='CrusPtnDropDown',
-                            ),
-                            ]
-                        ),
-                    ),                    
-
-                    dmc.Flex(
-                        [
-                            dmc.Tooltip(
-                                label="The acceleration due to gravity is the force that pulls objects towards the earth",
-                                children=dmc.Text("Gravity", c="white",size="sm",style={"width": "80px"}),
-                                position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
-                                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                            ),   
-                            dmc.NumberInput(value=9.81,w=60,id="GravityEditField",hideControls="True",disabled=True),
-                            dmc.Text("m..", c="white",style={"width": "20px"}),
-                            dmc.Tooltip(
-                                label="Rolling resistance is the force that opposes the motion of the vehicle as the tire roll over a surface.",
-                                children=dmc.Text("Rolling Resistance", c="white" ,size="sm",style={"width": "120px","marginLeft":"15px"}),
-                                position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
-                                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                            ),        
-                            dmc.NumberInput(value=0.008,w=60,id="frEditField",hideControls="True",disabled=True),
-                        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},ms=10
-                    ),
-                    dmc.Flex(
-                        [
-                            dmc.Tooltip(
-                                label="Head wind is the speed of the wind blowing directly against the direction of the vehicle’s motion.",
-                                children=dmc.Text("Head Wind", c="white",size="sm" ,style={"width": "80px"}),#,"marginLeft":"10px"
-                                position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
-                                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                            ),                             
+                    #         dmc.Button("Cruising Pattern",variant="gradient",gradient={"from": "teal", "to": "blue", "deg": 60}),
+                    #         # dmc.Button("<<<<IGBT settings", id="drawer-igbt",style={"backgroundColor": "#88a9b8","color": "black" }),
+                    #         dmc.Select(
+                    #             value="2",
+                    #             data=[
+                    #                 {"value": "1", "label": "NEDC"},
+                    #                 {"value": "2", "label": "WLTC"},
+                    #                 {"value": "3", "label": "CLTC"},
+                    #                 {"value": "4", "label": "FTP75"},
+                    #             ],
+                    #             w=200,
+                    #             mb=10,
+                    #             id='CrusPtnDropDown',
+                    #         ),
+                    #         ]
+                    #     ),
+                    # ),                    
+                    dmc.Table([table_drive_input],striped=False,highlightOnHover=False, withColumnBorders=False, withTableBorder=True,withRowBorders=False,style={ "marginLeft":"5px","padding": "5px",}),
+                    # dmc.Flex(
+                    #     [
+                    #         # dmc.Tooltip(
+                    #         #     label="The acceleration due to gravity is the force that pulls objects towards the earth",
+                    #         #     children=dmc.Text("Gravity", c="white",size="sm",style={"width": "80px"}),
+                    #         #     position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
+                    #         #     transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+                    #         # ),   
+                    #         # dmc.NumberInput(value=9.81,w=60,id="GravityEditField",hideControls="True",disabled=True),
+                    #         dmc.Text("m..", c="white",style={"width": "20px"}),
+                    #         dmc.Tooltip(
+                    #             label="Rolling resistance is the force that opposes the motion of the vehicle as the tire roll over a surface.",
+                    #             children=dmc.Text("Rolling Resistance", c="white" ,size="sm",style={"width": "120px","marginLeft":"15px"}),
+                    #             position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
+                    #             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+                    #         ),        
+                    #         dmc.NumberInput(value=0.008,w=60,id="frEditField",hideControls="True",disabled=True),
+                    #     ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},ms=10
+                    # ),
+                    # dmc.Flex(
+                    #     [
+                    #         dmc.Tooltip(
+                    #             label="Head wind is the speed of the wind blowing directly against the direction of the vehicle’s motion.",
+                    #             children=dmc.Text("Head Wind", c="white",size="sm" ,style={"width": "80px"}),#,"marginLeft":"10px"
+                    #             position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
+                    #             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+                    #         ),                             
                             
-                            dmc.NumberInput(value=0,w=60,id="VWindEditField",hideControls="True",disabled=True),
-                            dmc.Text("k..", c="white",style={"width": "20px"}),
-                            dmc.Tooltip(
-                                label=" The drag coefficient is a dimensionless number representing the vehicle’s aerodynamic efficiency",
-                                children=dmc.Text("Drag Coeff", c="white",size="sm" ,style={"width": "120px","marginLeft":"15px"}),
-                                position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
-                                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                            ),    
+                    #         dmc.NumberInput(value=0,w=60,id="VWindEditField",hideControls="True",disabled=True),
+                    #         dmc.Text("k..", c="white",style={"width": "20px"}),
+                    #         dmc.Tooltip(
+                    #             label=" The drag coefficient is a dimensionless number representing the vehicle’s aerodynamic efficiency",
+                    #             children=dmc.Text("Drag Coeff", c="white",size="sm" ,style={"width": "120px","marginLeft":"15px"}),
+                    #             position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
+                    #             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+                    #         ),    
                             
-                            dmc.NumberInput(value=0.25,w=60,id="CdEditField",hideControls="True",disabled=True),
-                        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},ms=10
-                    ),
-                    dmc.Flex(
-                        [
-                            dmc.Tooltip(
-                                label="The frontal area is the cross-sectional area of the vehicle facing the airflow.",
-                                children=dmc.Text("Frontial Area", c="white",size="sm" ,style={"width": "80px"}),
-                                position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
-                                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                            ),                             
+                    #         dmc.NumberInput(value=0.25,w=60,id="CdEditField",hideControls="True",disabled=True),
+                    #     ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},ms=10
+                    # ),
+                    # dmc.Flex(
+                    #     [
+                    #         dmc.Tooltip(
+                    #             label="The frontal area is the cross-sectional area of the vehicle facing the airflow.",
+                    #             children=dmc.Text("Frontial Area", c="white",size="sm" ,style={"width": "80px"}),
+                    #             position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
+                    #             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+                    #         ),                             
                             
-                            dmc.NumberInput(value=1.5,w=60,id="AfEditField",hideControls="True",disabled=True),
-                            dmc.Text("m^2", c="white",style={"width": "20px"}),
-                            dmc.Tooltip(
-                                label="Slip ratio is the difference between the rotational speed of the tire and the actual speed of the vehicle.",
-                                children=dmc.Text("Slip Ratio", c="white",size="sm",style={"width": "120px","marginLeft":"15px"}),
-                                position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
-                                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                            ),    
+                    #         dmc.NumberInput(value=1.5,w=60,id="AfEditField",hideControls="True",disabled=True),
+                    #         dmc.Text("m^2", c="white",style={"width": "20px"}),
+                    #         dmc.Tooltip(
+                    #             label="Slip ratio is the difference between the rotational speed of the tire and the actual speed of the vehicle.",
+                    #             children=dmc.Text("Slip Ratio", c="white",size="sm",style={"width": "120px","marginLeft":"15px"}),
+                    #             position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
+                    #             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+                    #         ),    
                             
-                            dmc.NumberInput(value=0.02,w=60,id="sxEditField",hideControls="True",disabled=True),
-                        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},ms=10
-                    ),
-                    dmc.Flex(
-                        [
-                            dmc.Tooltip(
-                                label="Air density is mass per unit volume of air.",
-                                children=dmc.Text("Air Density", c="white",size="sm" ,style={"width": "80px"}),
-                                position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
-                                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                            ),                             
+                    #         dmc.NumberInput(value=0.02,w=60,id="sxEditField",hideControls="True",disabled=True),
+                    #     ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},ms=10
+                    # ),
+                    # dmc.Flex(
+                    #     [
+                    #         dmc.Tooltip(
+                    #             label="Air density is mass per unit volume of air.",
+                    #             children=dmc.Text("Air Density", c="white",size="sm" ,style={"width": "80px"}),
+                    #             position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
+                    #             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+                    #         ),                             
                             
-                            dmc.NumberInput(value=1.225,w=60,id="pEditField",hideControls="True",disabled=True),
-                            dmc.Text("k...", c="white",style={"width": "20px"}),
-                            dmc.Tooltip(
-                                label="Transmission efficiency is the ratio of the output power to the input power of the transmission system.",
-                                children=dmc.Text("Trans Eff", c="white",size="sm",style={"width": "120px","marginLeft":"15px"}),
-                                position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
-                                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                            ), 
+                    #         dmc.NumberInput(value=1.225,w=60,id="pEditField",hideControls="True",disabled=True),
+                    #         dmc.Text("k...", c="white",style={"width": "20px"}),
+                    #         dmc.Tooltip(
+                    #             label="Transmission efficiency is the ratio of the output power to the input power of the transmission system.",
+                    #             children=dmc.Text("Trans Eff", c="white",size="sm",style={"width": "120px","marginLeft":"15px"}),
+                    #             position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
+                    #             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+                    #         ), 
                             
-                            dmc.NumberInput(value=0.98,w=60,id="ndrEditField",hideControls="True",disabled=True),
-                        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},ms=10
+                    #         dmc.NumberInput(value=0.98,w=60,id="ndrEditField",hideControls="True",disabled=True),
+                    #     ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},ms=10
                            
-                    ),
-                    dmc.Flex(
-                        [
-                            dmc.Tooltip(
-                                label="Road grade refers to the slope or incline of the road",
-                                children=dmc.Text("Road Grade", c="white",size="sm",style={"width": "80px"}),
-                                position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
-                                transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
-                            ),                             
-                            dmc.NumberInput(value=0,w=60,id="RoadGradeEditField",hideControls="True",disabled=True),
-                        ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},ms=10
-                    ),
+                    # ),
+                    # dmc.Flex(
+                    #     [
+                    #         dmc.Tooltip(
+                    #             label="Road grade refers to the slope or incline of the road",
+                    #             children=dmc.Text("Road Grade", c="white",size="sm",style={"width": "80px"}),
+                    #             position="right",offset=3,radius="sm",multiline=True,w=250,withArrow=True,
+                    #             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
+                    #         ),                             
+                    #         dmc.NumberInput(value=0,w=60,id="RoadGradeEditField",hideControls="True",disabled=True),
+                    #     ], direction={"base": "row", "sm": "row","lg":"row"},gap={"base": "sm", "sm": "sm","lg":"sm"},ms=10
+                    # ),
                     dmc.ScrollArea(h=250,children=dmc.Table([driving_thead,driving_tbody],striped=True,highlightOnHover=True, withColumnBorders=True, withTableBorder=True,style={"marginTop":"10px","marginLeft":"5px"}),
                                    ),
                     dmc.Space(h=10),
@@ -5711,7 +5912,8 @@ ploss_torque = dmc.Flex(
                     # dmc.Text("Mode", fw=500),
                     dmc.Select(id="TnLossModeDD",value="2",data=[ {"value": "1", "label": "Top10;Bottom10;"},{"value": "2", "label": "Free Points"},],style={"color": "#0be40a",} ),
                     dmc.Button("Clear",id="clear_tn",style={"color": "#5db1ec","backgroundColor": "rgba(34, 139, 230, 0.15)",}),
-                    dmc.Button("Next",id="Next_TnLossButton",style={"color": "#5db1ec","backgroundColor": "rgba(34, 139, 230, 0.15)","justifyContent": "flex-end"}),
+                    # dmc.Button("Next",id="Next_TnLossButton",style={"color": "#5db1ec","backgroundColor": "rgba(34, 139, 230, 0.15)","justifyContent": "flex-end"}),
+                    dmc.Button("Next",id="Next_TnLossButton",disabled=True, variant="light",style={"justifyContent": "flex-end"}),
                 ],
                 direction="row",
                 # gap="sm",
@@ -5732,7 +5934,7 @@ ploss_torque = dmc.Flex(
                         dcc.Store(id='click-counts-Tn', data={})
                     ],
                 ),
-                dmc.Drawer(title=dmc.Text("From Selected points",size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),id="Tn-drawer",padding="xs",size="100%",children=Next_Tn),
+                dmc.Drawer(title=dmc.Text("From Selected points",id="next_tntext",size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),id="Tn-drawer",padding="xs",size="100%",children=Next_Tn),
                 dmc.Modal(
                     title="WARNING",
                     id="ploss-torque-modal",
@@ -5772,9 +5974,9 @@ ploss_torque = dmc.Flex(
                             id="TnLoss1",
                             data=[
                                 {"value": "1", "label": "Pe with regeneration"},{"value": "2", "label": "Pe(kWh)"},{"value": "3", "label": "Pe(kW/s)"},
-                                {"value": "4", "label": "Pcu(kW)"},{"value": "5", "label": "Pfe(kW)"},{"value": "6", "label": "Pstr(kW)"},
-                                {"value": "7", "label": "Pf(kW)"},{"value": "8", "label": "Pw(kW)"},{"value": "9", "label": "Pinv(kW)"},
-                                {"value": "10", "label": "sum Ploss(kW)"},{"value": "11", "label": "Temp"},{"value": "12", "label": "η = Pe/Pbatt"}
+                               {"value": "4", "label": "PLoss(kW)"}, {"value": "5", "label": "Pcu(kW)"},{"value": "6", "label": "Pfe(kW)"},{"value": "7", "label": "Pstr(kW)"},
+                                {"value": "8", "label": "Pf(kW)"},{"value": "9", "label": "Pw(kW)"},{"value": "10", "label": "Pinv(kW)"},
+                                {"value": "11", "label": "sum Ploss(kW)"},{"value": "12", "label": "Temp"},{"value": "13", "label": "η = Pe/Pbatt"}
                             ],
                         ),
                        dmc.Paper(children=[dmc.Text("Style", size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center","padding": "8px"})], 
@@ -5813,9 +6015,9 @@ ploss_torque = dmc.Flex(
                             id="TnLoss2",
                             data=[
                                 {"value": "1", "label": "Pe with regeneration"},{"value": "2", "label": "Pe(kWh)"},{"value": "3", "label": "Pe(kW/s)"},
-                                {"value": "4", "label": "Pcu(kW)"},{"value": "5", "label": "Pfe(kW)"},{"value": "6", "label": "Pstr(kW)"},
-                                {"value": "7", "label": "Pf(kW)"},{"value": "8", "label": "Pw(kW)"},{"value": "9", "label": "Pinv(kW)"},
-                                {"value": "10", "label": "sum Ploss(kW)"},{"value": "11", "label": "Temp"},{"value": "12", "label": "η = Pe/Pbatt"}
+                               {"value": "4", "label": "PLoss(kW)"}, {"value": "5", "label": "Pcu(kW)"},{"value": "6", "label": "Pfe(kW)"},{"value": "7", "label": "Pstr(kW)"},
+                                {"value": "8", "label": "Pf(kW)"},{"value": "9", "label": "Pw(kW)"},{"value": "10", "label": "Pinv(kW)"},
+                                {"value": "11", "label": "sum Ploss(kW)"},{"value": "12", "label": "Temp"},{"value": "13", "label": "η = Pe/Pbatt"}
                             ],
                         ),
                         dmc.Paper(children=[dmc.Text("Style", size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center","padding": "8px"})], 
@@ -5853,9 +6055,9 @@ ploss_torque = dmc.Flex(
                             id="TnLoss3",
                             data=[
                                 {"value": "1", "label": "Pe with regeneration"},{"value": "2", "label": "Pe(kWh)"},{"value": "3", "label": "Pe(kW/s)"},
-                                {"value": "4", "label": "Pcu(kW)"},{"value": "5", "label": "Pfe(kW)"},{"value": "6", "label": "Pstr(kW)"},
-                                {"value": "7", "label": "Pf(kW)"},{"value": "8", "label": "Pw(kW)"},{"value": "9", "label": "Pinv(kW)"},
-                                {"value": "10", "label": "sum Ploss(kW)"},{"value": "11", "label": "Temp"},{"value": "12", "label": "η = Pe/Pbatt"}
+                               {"value": "4", "label": "PLoss(kW)"}, {"value": "5", "label": "Pcu(kW)"},{"value": "6", "label": "Pfe(kW)"},{"value": "7", "label": "Pstr(kW)"},
+                                {"value": "8", "label": "Pf(kW)"},{"value": "9", "label": "Pw(kW)"},{"value": "10", "label": "Pinv(kW)"},
+                                {"value": "11", "label": "sum Ploss(kW)"},{"value": "12", "label": "Temp"},{"value": "13", "label": "η = Pe/Pbatt"}
                             ],
                         ),
                         dmc.Paper(children=[dmc.Text("Style", size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center","padding": "8px"})], 
@@ -6545,8 +6747,10 @@ ploss_current = dmc.Flex(
                     # dmc.Text("Mode", fw=500),
                     dmc.Select(id="CurrentLossModeDD",value="2",data=[ {"value": "1", "label": "Top10;Bottom10;"},{"value": "2", "label": "Free Points"},],),
                     dmc.Button("Clear",id="clear_im",style={"color": "#5db1ec","fontWeight": "bold","backgroundColor":  "rgba(34, 139, 230, 0.15)",}),
-                    dmc.Button("Next",id="Next_CurrentLossButton",style={"color": "#5db1ec","fontWeight": "bold","backgroundColor":  "rgba(34, 139, 230, 0.15)","justifyContent": "flex-end"}),
-                    dmc.Drawer(id="imcurrent-drawer",padding="xs",size="100%",children=Next_ImLoss),
+                    dmc.Button("Next",id="Next_CurrentLossButton",disabled=True, variant="light",style={"justifyContent": "flex-end"}),
+                    # dmc.Button("Next",id="Next_CugitrentLossButton",style={"color": "#5db1ec","fontWeight": "bold","backgroundColor":  "rgba(34, 139, 230, 0.15)","justifyContent": "flex-end"}),
+                    # dmc.Drawer(title=id="imcurrent-drawer",padding="xs",size="100%",children=Next_ImLoss),
+                    dmc.Drawer(title=dmc.Text("From Selected points",id="next_Imtext",size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),id="imcurrent-drawer",padding="xs",size="100%",children=Next_ImLoss),
                     dmc.Modal(
                         title="WARNING",
                         id="ploss-current-modal",
@@ -6603,9 +6807,9 @@ ploss_current = dmc.Flex(
                             id="ImLoss1",
                             data=[
                                 {"value": "1", "label": "Pe with regeneration"},{"value": "2", "label": "Pe(kWh)"},{"value": "3", "label": "Pe(kW/s)"},
-                                {"value": "4", "label": "Pcu(kW)"},{"value": "5", "label": "Pfe(kW)"},{"value": "6", "label": "Pstr(kW)"},
-                                {"value": "7", "label": "Pf(kW)"},{"value": "8", "label": "Pw(kW)"},{"value": "9", "label": "Pinv(kW)"},
-                                {"value": "10", "label": "sum Ploss(kW)"},{"value": "11", "label": "Temp"},{"value": "12", "label": "η = Pe/Pbatt"}
+                               {"value": "4", "label": "PLoss(kW)"}, {"value": "5", "label": "Pcu(kW)"},{"value": "6", "label": "Pfe(kW)"},{"value": "7", "label": "Pstr(kW)"},
+                                {"value": "8", "label": "Pf(kW)"},{"value": "9", "label": "Pw(kW)"},{"value": "10", "label": "Pinv(kW)"},
+                                {"value": "11", "label": "sum Ploss(kW)"},{"value": "12", "label": "Temp"},{"value": "13", "label": "η = Pe/Pbatt"}
                             ],
                         ),
                         dmc.Paper(children=[dmc.Text("Style", size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center","padding": "8px"})], 
@@ -6639,11 +6843,11 @@ ploss_current = dmc.Flex(
                         dmc.Select(
                             value=None,
                             id="ImLoss2",
-                            data=[
+                           data=[
                                 {"value": "1", "label": "Pe with regeneration"},{"value": "2", "label": "Pe(kWh)"},{"value": "3", "label": "Pe(kW/s)"},
-                                {"value": "4", "label": "Pcu(kW)"},{"value": "5", "label": "Pfe(kW)"},{"value": "6", "label": "Pstr(kW)"},
-                                {"value": "7", "label": "Pf(kW)"},{"value": "8", "label": "Pw(kW)"},{"value": "9", "label": "Pinv(kW)"},
-                                {"value": "10", "label": "sum Ploss(kW)"},{"value": "11", "label": "Temp"},{"value": "12", "label": "η = Pe/Pbatt"}
+                               {"value": "4", "label": "PLoss(kW)"}, {"value": "5", "label": "Pcu(kW)"},{"value": "6", "label": "Pfe(kW)"},{"value": "7", "label": "Pstr(kW)"},
+                                {"value": "8", "label": "Pf(kW)"},{"value": "9", "label": "Pw(kW)"},{"value": "10", "label": "Pinv(kW)"},
+                                {"value": "11", "label": "sum Ploss(kW)"},{"value": "12", "label": "Temp"},{"value": "13", "label": "η = Pe/Pbatt"}
                             ],
                         ),
                         dmc.Paper(children=[dmc.Text("Style", size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center","padding": "8px"})], 
@@ -6679,9 +6883,9 @@ ploss_current = dmc.Flex(
                             id="ImLoss3",
                             data=[
                                 {"value": "1", "label": "Pe with regeneration"},{"value": "2", "label": "Pe(kWh)"},{"value": "3", "label": "Pe(kW/s)"},
-                                {"value": "4", "label": "Pcu(kW)"},{"value": "5", "label": "Pfe(kW)"},{"value": "6", "label": "Pstr(kW)"},
-                                {"value": "7", "label": "Pf(kW)"},{"value": "8", "label": "Pw(kW)"},{"value": "9", "label": "Pinv(kW)"},
-                                {"value": "10", "label": "sum Ploss(kW)"},{"value": "11", "label": "Temp"},{"value": "12", "label": "η = Pe/Pbatt"}
+                               {"value": "4", "label": "PLoss(kW)"}, {"value": "5", "label": "Pcu(kW)"},{"value": "6", "label": "Pfe(kW)"},{"value": "7", "label": "Pstr(kW)"},
+                                {"value": "8", "label": "Pf(kW)"},{"value": "9", "label": "Pw(kW)"},{"value": "10", "label": "Pinv(kW)"},
+                                {"value": "11", "label": "sum Ploss(kW)"},{"value": "12", "label": "Temp"},{"value": "13", "label": "η = Pe/Pbatt"}
                             ],
                         ),
                         dmc.Paper(children=[dmc.Text("Style", size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center","padding": "8px"})], 
@@ -7058,7 +7262,7 @@ page_content_evm = dmc.Tabs(
                 [
                     # dmc.TabsTab("Introduction", value="Introduction"),
                     dmc.TabsTab("Input", value="Input"),
-                    dmc.TabsTab("IPM Modelling", value="ipm",darkHidden=True,id="ipm"),
+                    dmc.TabsTab("IPM Modelling", value="ipm",id="ipm",darkHidden=True),
                     dmc.TabsTab("Drive pattern modeling", value="drive-pattern",id="drive-pattern",darkHidden=True),
                     dmc.TabsTab("P-Loss analysis by Torque", value="ploss-torque",darkHidden=True,id="pt"),
                     dmc.TabsTab("P-Loss analysis by Current", value="ploss-current",darkHidden=True,id="pc"),
@@ -8610,7 +8814,7 @@ def NextButtonPushed(n_clicks, motor_file, inverter_file, battery_file, gear_fil
         resetab()
 
     if n_clicks is None:
-        return True,True,True,True,True,True, opened
+        return True,True,True,True,True,True,opened
    
     all_files_non_empty = all(
         isinstance(file, str) and file.strip() for file in
@@ -9582,6 +9786,7 @@ def PLossanalysisbyTorqueTabButtonDown(tab, active_cell, clicks, click_counts):
  
 @app.callback(
     Output('Next_TnLossButton', 'disabled'),
+     Output('next_tntext', 'children'),
     [Input('click-counts-Tn', 'data'),
      Input('TnLossModeDD', 'value')]
 )
@@ -9590,8 +9795,9 @@ def toggle_button(click_counts,TnLossModeDD):
     Tnpoints = []
     mode = int(TnLossModeDD)
     if mode == 1:
-        return False
- 
+        new_title = "Top10 and Bottom10 Points"
+        return False,new_title
+    new_title="From Selected Points"
     # Define the mapping of column ranges to their indices
     column_map = {
         "0 - 1000": 0,
@@ -9616,7 +9822,7 @@ def toggle_button(click_counts,TnLossModeDD):
         "19000 - 20000": 19
     }
  
- 
+    
     # Count the number of cells currently colored pink
     pink_cells_count = sum(1 for count in click_counts.values() if count % 2 == 1)
  
@@ -9638,7 +9844,7 @@ def toggle_button(click_counts,TnLossModeDD):
                         Tnpoints.append((row, col))  # Store as tuple (row, col)
  
     # Enable the button only if there are exactly 20 pink cells
-    return pink_cells_count < 20
+    return pink_cells_count < 20,new_title
  
  
  
@@ -9725,15 +9931,16 @@ def update_table(selected_value,TnAvg1):
         "1": "Pe with regeneration by Tn at set points",
         "2": "Pe(kWh) by Tn at set points",
         "3": "Pe(kW/s) by Tn at set points",
-        "4": "Pcu(kW) by Tn at set points",
-        "5": "Pfe(kW) by Tn at set points",
+        "4": "PLoss(kW) by Tn at set points",
+        "5": "Pcu(kW) by Tn at set points",
+        "6": "Pfe(kW) by Tn at set points",
         "6": "Pstr(kW) by Tn at set points",
-        "7": "Pf(kW) by Tn at set points",
-        "8": "Pw(kW) by Tn at set points",
-        "9": "Pinv(kW) by Tn at set points",
-        "10": "sum Ploss(kW) by Tn at set points",
-        "11": "Temp by Tn at set points",
-        "12": "η = Pe/Pbatt by Tn at set points",
+        "8": "Pf(kW) by Tn at set points",
+        "9": "Pw(kW) by Tn at set points",
+        "10": "Pinv(kW) by Tn at set points",
+        "11": "sum Ploss(kW) by Tn at set points",
+        "12": "Temp by Tn at set points",
+        "13": "η = Pe/Pbatt by Tn at set points",
     }
     dp.condPe= np.array(dp.condPe)
     dp.Pekwh= np.array(dp.Pekwh)
@@ -9743,10 +9950,11 @@ def update_table(selected_value,TnAvg1):
     dp.Pstr= np.array(dp.Pstr)
     dp.Pw= np.array(dp.Pw)
     dp.Pinv= np.array(dp.Pinv)
+    dp.Pf= np.array(dp.Pf)
     dp.Temp= np.array(dp.Temp)
     dp.Im= np.array(dp.Im)
     dp.werpm= np.array(dp.werpm)
-    dp.Pf = np.array(dp.Pf)
+    dp.Ploss=np.array(dp.Ploss)
     if selected_value == "1":
         TnLosstype1 = dp.condPe
     elif selected_value == "2":
@@ -9754,22 +9962,24 @@ def update_table(selected_value,TnAvg1):
     elif selected_value == "3":
         TnLosstype1 = dp.Pekws
     elif selected_value == "4":
-        TnLosstype1 = dp.Pcu
+        TnLosstype1 = dp.Ploss        
     elif selected_value == "5":
-        TnLosstype1 = dp.Pfe
+        TnLosstype1 = dp.Pcu
     elif selected_value == "6":
-        TnLosstype1 = dp.Pstr
+        TnLosstype1 = dp.Pfe
     elif selected_value == "7":
-        TnLosstype1 = dp.Pf
+        TnLosstype1 = dp.Pstr
     elif selected_value == "8":
-        TnLosstype1 = dp.Pw
+        TnLosstype1 = dp.Pf
     elif selected_value == "9":
-        TnLosstype1 = dp.Pinv
+        TnLosstype1 = dp.Pw
     elif selected_value == "10":
-        TnLosstype1 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
+        TnLosstype1 = dp.Pinv
     elif selected_value == "11":
-        TnLosstype1 = dp.Temp
+        TnLosstype1 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
     elif selected_value == "12":
+        TnLosstype1 = dp.Temp
+    elif selected_value == "13":
         TnLosstype1 = dp.n
  
     xax = TnScale_init - np.arange(0, 21) * TnScale_inc
@@ -9869,15 +10079,16 @@ def update_table(selected_value,TnAvg2):
         "1": "Pe with regeneration by Tn at set points",
         "2": "Pe(kWh) by Tn at set points",
         "3": "Pe(kW/s) by Tn at set points",
-        "4": "Pcu(kW) by Tn at set points",
-        "5": "Pfe(kW) by Tn at set points",
+        "4": "PLoss(kW) by Tn at set points",
+        "5": "Pcu(kW) by Tn at set points",
+        "6": "Pfe(kW) by Tn at set points",
         "6": "Pstr(kW) by Tn at set points",
-        "7": "Pf(kW) by Tn at set points",
-        "8": "Pw(kW) by Tn at set points",
-        "9": "Pinv(kW) by Tn at set points",
-        "10": "sum Ploss(kW) by Tn at set points",
-        "11": "Temp by Tn at set points",
-        "12": "η = Pe/Pbatt by Tn at set points",
+        "8": "Pf(kW) by Tn at set points",
+        "9": "Pw(kW) by Tn at set points",
+        "10": "Pinv(kW) by Tn at set points",
+        "11": "sum Ploss(kW) by Tn at set points",
+        "12": "Temp by Tn at set points",
+        "13": "η = Pe/Pbatt by Tn at set points",
     }
     dp.condPe= np.array(dp.condPe)
     dp.Pekwh= np.array(dp.Pekwh)
@@ -9887,33 +10098,36 @@ def update_table(selected_value,TnAvg2):
     dp.Pstr= np.array(dp.Pstr)
     dp.Pw= np.array(dp.Pw)
     dp.Pinv= np.array(dp.Pinv)
+    dp.Pf= np.array(dp.Pf)
     dp.Temp= np.array(dp.Temp)
     dp.Im= np.array(dp.Im)
     dp.werpm= np.array(dp.werpm)
-    dp.Pf = np.array(dp.Pf)
+    dp.Ploss=np.array(dp.Ploss)
     if selected_value == "1":
-        TnLosstype2 = dp.condPe
+        TnLosstype2= dp.condPe
     elif selected_value == "2":
         TnLosstype2 = dp.Pekwh
     elif selected_value == "3":
         TnLosstype2 = dp.Pekws
     elif selected_value == "4":
-        TnLosstype2 = dp.Pcu
+        TnLosstype2 = dp.Ploss        
     elif selected_value == "5":
-        TnLosstype2 = dp.Pfe
+        TnLosstype2 = dp.Pcu
     elif selected_value == "6":
-        TnLosstype2 = dp.Pstr
+        TnLosstype2 = dp.Pfe
     elif selected_value == "7":
-        TnLosstype2 = dp.Pf
+        TnLosstype2 = dp.Pstr
     elif selected_value == "8":
-        TnLosstype2 = dp.Pw
+        TnLosstype2 = dp.Pf
     elif selected_value == "9":
-        TnLosstype2 = dp.Pinv
+        TnLosstype2 = dp.Pw
     elif selected_value == "10":
-        TnLosstype2 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
+        TnLosstype2 = dp.Pinv
     elif selected_value == "11":
-        TnLosstype2 = dp.Temp
+        TnLosstype2 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
     elif selected_value == "12":
+        TnLosstype2 = dp.Temp
+    elif selected_value == "13":
         TnLosstype2 = dp.n
  
     xax = TnScale_init - np.arange(0, 21) * TnScale_inc
@@ -10014,15 +10228,16 @@ def update_table(selected_value,TnAvg3):
         "1": "Pe with regeneration by Tn at set points",
         "2": "Pe(kWh) by Tn at set points",
         "3": "Pe(kW/s) by Tn at set points",
-        "4": "Pcu(kW) by Tn at set points",
-        "5": "Pfe(kW) by Tn at set points",
+        "4": "PLoss(kW) by Tn at set points",
+        "5": "Pcu(kW) by Tn at set points",
+        "6": "Pfe(kW) by Tn at set points",
         "6": "Pstr(kW) by Tn at set points",
-        "7": "Pf(kW) by Tn at set points",
-        "8": "Pw(kW) by Tn at set points",
-        "9": "Pinv(kW) by Tn at set points",
-        "10": "sum Ploss(kW) by Tn at set points",
-        "11": "Temp by Tn at set points",
-        "12": "η = Pe/Pbatt by Tn at set points",
+        "8": "Pf(kW) by Tn at set points",
+        "9": "Pw(kW) by Tn at set points",
+        "10": "Pinv(kW) by Tn at set points",
+        "11": "sum Ploss(kW) by Tn at set points",
+        "12": "Temp by Tn at set points",
+        "13": "η = Pe/Pbatt by Tn at set points",
     }
     dp.condPe= np.array(dp.condPe)
     dp.Pekwh= np.array(dp.Pekwh)
@@ -10036,7 +10251,7 @@ def update_table(selected_value,TnAvg3):
     dp.Temp= np.array(dp.Temp)
     dp.Im= np.array(dp.Im)
     dp.werpm= np.array(dp.werpm)
- 
+    dp.Ploss=np.array(dp.Ploss)
     if selected_value == "1":
         TnLosstype3 = dp.condPe
     elif selected_value == "2":
@@ -10044,22 +10259,24 @@ def update_table(selected_value,TnAvg3):
     elif selected_value == "3":
         TnLosstype3 = dp.Pekws
     elif selected_value == "4":
-        TnLosstype3 = dp.Pcu
+        TnLosstype3 = dp.Ploss        
     elif selected_value == "5":
-        TnLosstype3 = dp.Pfe
+        TnLosstype3 = dp.Pcu
     elif selected_value == "6":
-        TnLosstype3 = dp.Pstr
+        TnLosstype3 = dp.Pfe
     elif selected_value == "7":
-        TnLosstype3 = dp.Pf
+        TnLosstype3 = dp.Pstr
     elif selected_value == "8":
-        TnLosstype3 = dp.Pw
+        TnLosstype3 = dp.Pf
     elif selected_value == "9":
-        TnLosstype3 = dp.Pinv
+        TnLosstype3 = dp.Pw
     elif selected_value == "10":
-        TnLosstype3 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
+        TnLosstype3 = dp.Pinv
     elif selected_value == "11":
-        TnLosstype3 = dp.Temp
+        TnLosstype3 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
     elif selected_value == "12":
+        TnLosstype3 = dp.Temp
+    elif selected_value == "13":
         TnLosstype3 = dp.n
  
     xax = TnScale_init - np.arange(0, 21) * TnScale_inc
@@ -10344,9 +10561,16 @@ def Next_TnLossButtonPushed(n_clicks,TnLossModeDD,Tndrrop1,Tndrrop2,Tndrrop3,ope
         colnames = ['','Order', 'Pcu(kW)', 'Pfe(kW)', 'Pstr(kW)', 'Pf(kW)', 'Pw(kW)', 'Pinv(kW)']
         rownames = ['P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'P9', 'P10', 'N1', 'N2', 'N3', 'N4', 'N5', 'N6', 'N7', 'N8', 'N9', 'N10']
     
-    
+        
         mat1 = np.array(TnLoss1_data1)
+        # print("ptx",ptx)
+        # print("sumarray1",sumarray1)
+        # sigman[idx] = np.sum(TnN[condition])  # Column AE
+        for i in range(len(sigman)):
+            print("i",i,sigman[i])
+
         ord11, y1 = OrdMatCalc(mode, mat1, np.round(sumarray1, 4), sumPcu, sumPFe, sumPstr, sumPf, sumPw, sumPinv, ptx, pty)
+        print("y1",y1)
         ord1 = ord11.reshape(-1, 1)  # Reshape ord1 to be 20x1
         data = np.hstack((ord1, np.round(y1,4)))  # Now hstack will work correctly
         table_data = [[row_name] + list(row_data) for row_name, row_data in zip(rownames, data)]
@@ -10558,17 +10782,19 @@ def PLossanalysisbyCurrentTabButtonDown(tab, active_cell, clicks, click_counts):
  
 @app.callback(
     Output('Next_CurrentLossButton', 'disabled'),
+    Output('next_Imtext','children'),
     [Input('click-counts', 'data'),
      Input('CurrentLossModeDD','value')]
 )
 def toggle_button(click_counts,CurrentLossModeDD):
     mode = int(CurrentLossModeDD)
     if mode == 1:
-        return False
+        new_title = "Top10 and Bottom10 Points Selected"
+        return False,new_title
     
     global Impoints
     Impoints = []
-
+    new_title="From selected points"
     # Define the mapping of column ranges to their indices
     column_map = {
         "0 - 1000": 0,
@@ -10617,7 +10843,7 @@ def toggle_button(click_counts,CurrentLossModeDD):
     # print("Impoints:", Impoints)
  
     # Enable the button only if there are exactly 20 pink cells
-    return pink_cells_count < 20
+    return pink_cells_count < 20,new_title
 
 #roy check
 @app.callback(
@@ -10713,18 +10939,19 @@ def update_table(selected_value,ImAvg1):
        return dash.no_update,dash.no_update,[],dash.no_update
    
     label_map = {
-        "1": "Pe with regeneration by Im at set points",
+        "1": "Pe with regeneration by   Im at set points",
         "2": "Pe(kWh) by Im at set points",
         "3": "Pe(kW/s) by Im at set points",
-        "4": "Pcu(kW) by Im at set points",
-        "5": "Pfe(kW) by Im at set points",
+        "4": "PLoss(kW) by Im at set points",
+        "5": "Pcu(kW) by Im at set points",
+        "6": "Pfe(kW) by Im at set points",
         "6": "Pstr(kW) by Im at set points",
-        "7": "Pf(kW) by Im at set points",
-        "8": "Pw(kW) by Im at set points",
-        "9": "Pinv(kW) by Im at set points",
-        "10": "sum Ploss(kW) by Im at set points",
-        "11": "Temp by Im at set points",
-        "12": "η = Pe/Pbatt by Im at set points",
+        "8": "Pf(kW) by Im at set points",
+        "9": "Pw(kW) by Im at set points",
+        "10": "Pinv(kW) by Im at set points",
+        "11": "sum Ploss(kW) by Im at set points",
+        "12": "Temp by Im at set points",
+        "13": "η = Pe/Pbatt by Im at set points",
     }
     dp.condPe= np.array(dp.condPe)
     dp.Pekwh= np.array(dp.Pekwh)
@@ -10734,12 +10961,11 @@ def update_table(selected_value,ImAvg1):
     dp.Pstr= np.array(dp.Pstr)
     dp.Pw= np.array(dp.Pw)
     dp.Pinv= np.array(dp.Pinv)
+    dp.Pf= np.array(dp.Pf)
     dp.Temp= np.array(dp.Temp)
     dp.Im= np.array(dp.Im)
     dp.werpm= np.array(dp.werpm)
-    dp.Pf = np.array(dp.Pf)
-    # ImLosstype1=[]
-    # print("ImLosstype1",ImLosstype1)
+    dp.Ploss=np.array(dp.Ploss)
     if selected_value == "1":
         ImLosstype1 = dp.condPe
     elif selected_value == "2":
@@ -10747,22 +10973,24 @@ def update_table(selected_value,ImAvg1):
     elif selected_value == "3":
         ImLosstype1 = dp.Pekws
     elif selected_value == "4":
-        ImLosstype1 = dp.Pcu
+        ImLosstype1 = dp.Ploss        
     elif selected_value == "5":
-        ImLosstype1 = dp.Pfe
+        ImLosstype1 = dp.Pcu
     elif selected_value == "6":
-        ImLosstype1 = dp.Pstr
+        ImLosstype1 = dp.Pfe
     elif selected_value == "7":
-        ImLosstype1 = dp.Pf
+        ImLosstype1 = dp.Pstr
     elif selected_value == "8":
-        ImLosstype1 = dp.Pw
+        ImLosstype1 = dp.Pf
     elif selected_value == "9":
-        ImLosstype1 = dp.Pinv
+        ImLosstype1 = dp.Pw
     elif selected_value == "10":
-        ImLosstype1 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
+        ImLosstype1 = dp.Pinv
     elif selected_value == "11":
-        ImLosstype1 = dp.Temp
+        ImLosstype1 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
     elif selected_value == "12":
+        ImLosstype1 = dp.Temp
+    elif selected_value == "13":
         ImLosstype1 = dp.n
     
     xax = ImScale_init - np.arange(0, 21) * ImScale_inc
@@ -10871,19 +11099,21 @@ def update_table(selected_value,ImAvg2):
     if selected_value is None:
         return dash.no_update,dash.no_update,[],dash.no_update
    
+   
     label_map = {
         "1": "Pe with regeneration by Im at set points",
         "2": "Pe(kWh) by Im at set points",
         "3": "Pe(kW/s) by Im at set points",
-        "4": "Pcu(kW) by Im at set points",
-        "5": "Pfe(kW) by Im at set points",
+        "4": "PLoss(kW) by Im at set points",
+        "5": "Pcu(kW) by Im at set points",
+        "6": "Pfe(kW) by Im at set points",
         "6": "Pstr(kW) by Im at set points",
-        "7": "Pf(kW) by Im at set points",
-        "8": "Pw(kW) by Im at set points",
-        "9": "Pinv(kW) by Im at set points",
-        "10": "sum Ploss(kW) by Im at set points",
-        "11": "Temp by Im at set points",
-        "12": "η = Pe/Pbatt by Im at set points",
+        "8": "Pf(kW) by Im at set points",
+        "9": "Pw(kW) by Im at set points",
+        "10": "Pinv(kW) by Im at set points",
+        "11": "sum Ploss(kW) by Im at set points",
+        "12": "Temp by Im at set points",
+        "13": "η = Pe/Pbatt by Im at set points",
     }
     dp.condPe= np.array(dp.condPe)
     dp.Pekwh= np.array(dp.Pekwh)
@@ -10893,10 +11123,11 @@ def update_table(selected_value,ImAvg2):
     dp.Pstr= np.array(dp.Pstr)
     dp.Pw= np.array(dp.Pw)
     dp.Pinv= np.array(dp.Pinv)
+    dp.Pf= np.array(dp.Pf)
     dp.Temp= np.array(dp.Temp)
     dp.Im= np.array(dp.Im)
     dp.werpm= np.array(dp.werpm)
-    dp.Pf = np.array(dp.Pf)
+    dp.Ploss=np.array(dp.Ploss)
     if selected_value == "1":
         ImLosstype2 = dp.condPe
     elif selected_value == "2":
@@ -10904,22 +11135,24 @@ def update_table(selected_value,ImAvg2):
     elif selected_value == "3":
         ImLosstype2 = dp.Pekws
     elif selected_value == "4":
-        ImLosstype2 = dp.Pcu
+        ImLosstype2 = dp.Ploss        
     elif selected_value == "5":
-        ImLosstype2 = dp.Pfe
+        ImLosstype2 = dp.Pcu
     elif selected_value == "6":
-        ImLosstype2 = dp.Pstr
+        ImLosstype2 = dp.Pfe
     elif selected_value == "7":
-        ImLosstype2 = dp.Pf
+        ImLosstype2 = dp.Pstr
     elif selected_value == "8":
-        ImLosstype2 = dp.Pw
+        ImLosstype2 = dp.Pf
     elif selected_value == "9":
-        ImLosstype2 = dp.Pinv
+        ImLosstype2 = dp.Pw
     elif selected_value == "10":
-        ImLosstype2 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
+        ImLosstype2 = dp.Pinv
     elif selected_value == "11":
-        ImLosstype2 = dp.Temp
+        ImLosstype2 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
     elif selected_value == "12":
+        ImLosstype2 = dp.Temp
+    elif selected_value == "13":
         ImLosstype2 = dp.n
  
     xax = ImScale_init - np.arange(0, 21) * ImScale_inc
@@ -11035,29 +11268,30 @@ def update_table(selected_value,ImAvg3):
         "1": "Pe with regeneration by Im at set points",
         "2": "Pe(kWh) by Im at set points",
         "3": "Pe(kW/s) by Im at set points",
-        "4": "Pcu(kW) by Im at set points",
-        "5": "Pfe(kW) by Im at set points",
+        "4": "PLoss(kW) by Im at set points",
+        "5": "Pcu(kW) by Im at set points",
+        "6": "Pfe(kW) by Im at set points",
         "6": "Pstr(kW) by Im at set points",
-        "7": "Pf(kW) by Im at set points",
-        "8": "Pw(kW) by Im at set points",
-        "9": "Pinv(kW) by Im at set points",
-        "10": "sum Ploss(kW) by Im at set points",
-        "11": "Temp by Im at set points",
-        "12": "η = Pe/Pbatt by Im at set points",
+        "8": "Pf(kW) by Im at set points",
+        "9": "Pw(kW) by Im at set points",
+        "10": "Pinv(kW) by Im at set points",
+        "11": "sum Ploss(kW) by Im at set points",
+        "12": "Temp by Im at set points",
+        "13": "η = Pe/Pbatt by Im at set points",
     }
     dp.condPe= np.array(dp.condPe)
     dp.Pekwh= np.array(dp.Pekwh)
     dp.Pekws= np.array(dp.Pekws)
     dp.Pcu= np.array(dp.Pcu)
     dp.Pfe= np.array(dp.Pfe)
-    dp.Pf = np.array(dp.Pf)
     dp.Pstr= np.array(dp.Pstr)
     dp.Pw= np.array(dp.Pw)
     dp.Pinv= np.array(dp.Pinv)
+    dp.Pf= np.array(dp.Pf)
     dp.Temp= np.array(dp.Temp)
     dp.Im= np.array(dp.Im)
     dp.werpm= np.array(dp.werpm)
- 
+    dp.Ploss=np.array(dp.Ploss)
     if selected_value == "1":
         ImLosstype3 = dp.condPe
     elif selected_value == "2":
@@ -11065,22 +11299,24 @@ def update_table(selected_value,ImAvg3):
     elif selected_value == "3":
         ImLosstype3 = dp.Pekws
     elif selected_value == "4":
-        ImLosstype3 = dp.Pcu
+        ImLosstype3 = dp.Ploss        
     elif selected_value == "5":
-        ImLosstype3 = dp.Pfe
+        ImLosstype3 = dp.Pcu
     elif selected_value == "6":
-        ImLosstype3 = dp.Pstr
+        ImLosstype3 = dp.Pfe
     elif selected_value == "7":
-        ImLosstype3 = dp.Pf
+        ImLosstype3 = dp.Pstr
     elif selected_value == "8":
-        ImLosstype3 = dp.Pw
+        ImLosstype3 = dp.Pf
     elif selected_value == "9":
-        ImLosstype3 = dp.Pinv
+        ImLosstype3 = dp.Pw
     elif selected_value == "10":
-        ImLosstype3 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
+        ImLosstype3 = dp.Pinv
     elif selected_value == "11":
-        ImLosstype3 = dp.Temp
+        ImLosstype3 = dp.Pcu + dp.Pfe + dp.Pstr + dp.Pf + dp.Pw + dp.Pinv
     elif selected_value == "12":
+        ImLosstype3 = dp.Temp
+    elif selected_value == "13":
         ImLosstype3 = dp.n
  
     xax = ImScale_init - np.arange(0, 21) * ImScale_inc
@@ -11960,4 +12196,4 @@ server = app.server
 # Run the server
 if __name__ == "__main__":
     # app.run_server(host='0.0.0.0', port=8050)
-    app.run_server(debug=True)
+    app.run_server(debug=False)

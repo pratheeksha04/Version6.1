@@ -138,7 +138,7 @@ def TorqueVsSpeed(condition_value='None'):
         fig.update_yaxes(title_text='Torque (Nm)')
         fig.update_layout(title_text="Torque vs speed",title_font=dict(color="rgb(28,18,112)"))
         fig.update_layout(
-            title_font={'size': 12,'color': 'white'},
+            title_font={'size': 15,'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             xaxis_showline=False,
@@ -238,7 +238,7 @@ def TempOnTnGraph(condition_value='None'):
         fig = go.Figure(data=traces ,layout=layout)
         # fig = go.Figure(data=traces + [trace_ct, trace_mp, trace_mv], layout=layout)
         fig.update_layout(
-            title_font={'size': 12,'color': 'white'},
+            title_font={'size': 15,'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             xaxis=dict(showline=False, showgrid=False,zeroline=False),
@@ -310,7 +310,7 @@ def PLoss(condition_value='None'):
         fig.update_yaxes(title='kW', title_font=dict(color='#001c49'))
         fig.update_layout(title='Ploss', legend=dict(title='Categories',title_font=dict(color='white'),font=dict(color='white'),), showlegend=True)
         fig.update_layout(
-            title_font={'size': 12, 'color': 'white'},
+            title_font={'size': 15, 'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             yaxis_title_font=dict(color="white"),  # Set y-axis title color to white
@@ -385,7 +385,7 @@ def PowerVsSpeed(condition_value='None'):
         # Update layout
         fig.update_layout(
             title="Power v/s Speed",
-            title_font={'size': 12,'color': 'white'},
+            title_font={'size': 15,'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             xaxis_title="rpm",
@@ -501,7 +501,7 @@ def TempOnPower(condition_value='None'):
         fig=go.Figure(data=traces ,layout=layout)
         # fig = go.Figure(data=traces + [trace_ct, trace_mp, trace_mv], layout=layout)
         fig.update_layout(
-            title_font={'size': 12,'color': 'white'},
+            title_font={'size': 15,'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             xaxis=dict(showline=False, showgrid=False,zeroline=False ),
@@ -591,7 +591,7 @@ def IdIqControl(condition_value='None'):
     )
 
     if condition_value == '2':
-        fig.update_layout(showlegend=True)
+        fig.update_layout(showlegend=True,title_font={'size': 15,'color': 'white'},)
     else:
         fig.update_layout(showlegend=False)
     return fig
@@ -658,7 +658,7 @@ def lutpointsgraph(condition_value='None'):
         xaxis=dict(range=[-700, 100]),
         yaxis=dict(range=[-100, 700]),
         title='LUT points and Torque and Speed curve, PF',
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis_showline=False,
@@ -709,7 +709,7 @@ def TnCurveButtonPushed( ):
  
     fig.update_layout(title_text="Tn Curve",title_font=dict(color="rgb(28,18,112)"))
     fig.update_layout(
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis_showline=False,
@@ -757,7 +757,7 @@ def TotalTorqueButtonPushed(condition_value='None'):
         yaxis_title='Torque (Nm)',
         xaxis=dict(range=[min(degree), max(degree)]),
         title='Total torque = Magnet torque + Reluctance torque',
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         legend=dict(x=1.03, y=0.5, orientation='v' , font=dict(color='white')),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
@@ -800,7 +800,7 @@ def MaxtorqueperCurrentButtonPushed(condition_value='None'):
         xaxis=dict(title='angle (degree)', title_font=dict(size=12)),
         yaxis=dict(title='Torque (Nm)', title_font=dict(size=12)),
         title_text='MTPA (Max Troque at Irms)',
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis_showline=False,
@@ -928,7 +928,7 @@ def IsVsPfButtonPushed(condition_value='None'):
     # Set the title
     fig.update_layout(
         title='Is, Vs, PF',
-        title_font={'size': 12, 'color': 'white'},
+        title_font={'size': 15, 'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis_showline=False,
@@ -1003,7 +1003,7 @@ def efficiency_map(condition_value='None'):
         xaxis_title='Id',
         yaxis_title='Iq',
         title='A12 Id/Iq',
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         xaxis=dict( showline=False, showgrid=False,zeroline=False),
         yaxis=dict(showline=False, showgrid=False,zeroline=False,),
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
@@ -1042,9 +1042,7 @@ def IdIqControlMapByTemp(condition_value='None'):
     n5000 = np.where(a12['nrpm'] == 5000) 
     p10000 = np.where(a12['prpm'] == 10000) 
     n10000 = np.where(a12['nrpm'] == 10000) 
-    print("n5000",n5000)
-    print("n10000",n10000)
-    print("n5000",a12['negId'][n5000])
+
 
     ipm.plaId = np.array( ipm.plaId)
     ipm.plaIq = np.array( ipm.plaIq)
@@ -1076,7 +1074,7 @@ def IdIqControlMapByTemp(condition_value='None'):
     # Create figure
     fig = go.Figure(data=traces, layout=layout)
     fig.update_layout(
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis=dict(showline=False, showgrid=False,zeroline=False,range=[-800, 0], tick0=0,dtick=200),
@@ -1145,7 +1143,7 @@ def IdIqControlMapByTorque(condition_value='None'):
         yaxis=dict(range=[0, 600], tick0=0, dtick=100)
     )
     fig.update_layout(
-            title_font={'size': 12,'color': 'white'},
+            title_font={'size': 15,'color': 'white'},
             paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
             plot_bgcolor="rgba(0,0,0,0)",
             xaxis=dict(showline=False, showgrid=False,zeroline=False),
@@ -1250,7 +1248,7 @@ def Ploss_lmc(condition_value='None'):
     # Update layout
     fig.update_layout(title='Ploss vs Id', xaxis_title='plaId', yaxis_title='plaPL', showlegend=False)
     fig.update_layout(
-        title_font={'size': 12, 'color': 'white'},
+        title_font={'size': 15, 'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis=dict(title='Iq',showline=False, showgrid=False,zeroline=False),
@@ -1295,7 +1293,7 @@ def IPMModelingTabButtonDown():
     a=5
     crr = np.array([S1K, S5K, S10K, S15K]) + ipm.initial
     ipm.plaId,ipm.plaIq = ipmclass.filter(crr,ipm.rpm,ipm.Id,ipm.Iq)
-    print("ipm.plaId ipmmodellig",ipm.plaId)
+    # print("ipm.plaId ipmmodellig",ipm.plaId)
     num=len(ipm.rpm)
     ipmclass.losscalc(ipm,mot,inv,igbt,Temp,Flag,num)
     gt = ipmclass.graphtool(ipm.IPMstatus,ipm.Id,ipm.Iq,ipm.Tn,ipm.Pe)
@@ -1455,7 +1453,7 @@ def SpeedAccelDecel(condition_value='None' ):
                 showlegend=False,
                 )
     if condition_value=="2":
-        fig.update_layout(showlegend=True,legend=dict(x=1.03, y=0.6, orientation='v', font=dict(color='white')))
+        fig.update_layout(showlegend=True, title_font={'size': 15,'color': 'white'},legend=dict(x=1.03, y=0.6, orientation='v', font=dict(color='white')))
     # Show the figure
     return fig
  
@@ -1518,7 +1516,7 @@ def effMapTn(condition_value='None') :
  
     # # Show the plot
     if condition_value == '2':
-        fig.update_layout(showlegend=True,legend=dict(x=1.03, y=0.6, orientation='v', font=dict(color='white')))
+        fig.update_layout(showlegend=True, title_font={'size': 15,'color': 'white'},legend=dict(x=1.03, y=0.6, orientation='v', font=dict(color='white')))
     # else:
     #     fig.update_layout(showlegend=False, height=400)
  
@@ -1550,7 +1548,7 @@ def piegraph(condition_value='None'):
     )
    
     if condition_value == '2':
-        fig.update_layout(showlegend=True, legend=dict(x=1.00, y=0.3, orientation='v' , font=dict(color='white')),)
+        fig.update_layout(showlegend=True, title_font={'size': 15,'color': 'white'}, legend=dict(x=1.00, y=0.3, orientation='v' , font=dict(color='white')),)
     # else:
     #     fig.update_layout(showlegend=False,height=400)
     return fig
@@ -1595,7 +1593,7 @@ def wltc_btt( condition_value='None'):
         showlegend=False
     )
     if condition_value == '2':
-        fig.update_layout(showlegend=True, legend=dict(x=1.01, y=0.3, orientation='v' , font=dict(color='white')),)
+        fig.update_layout(showlegend=True,  title_font={'size': 15,'color': 'white'},legend=dict(x=1.01, y=0.3, orientation='v' , font=dict(color='white')),)
     # else:
     #     fig.update_layout(showlegend=False,height=400)
     return fig
@@ -1650,7 +1648,7 @@ def effPower(condition_value='None'):
         showlegend=False,
     )
     if condition_value == '2':
-        fig.update_layout(showlegend=True, legend=dict(x=1.01, y=0.3, orientation='v' , font=dict(color='white')),)
+        fig.update_layout(showlegend=True,  title_font={'size': 15,'color': 'white'},legend=dict(x=1.01, y=0.3, orientation='v' , font=dict(color='white')),)
  
     return fig
     # Show the plot
@@ -1821,7 +1819,7 @@ def CruisingdistanceandbatterybysimulationandpoleButtonPushed():
    
     fig.add_trace(go.Scatter(x=list(range(len(crusdist))), y=np.abs(crusdist), name='Cruising Distance', mode='lines+markers', marker=dict(color='yellow', size=10), line=dict(color='red'),yaxis='y2'))
     fig.update_yaxes(range=[420, 490],dtick=10, secondary_y=True)
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
     # fig.show()
     return fig
 
@@ -1903,11 +1901,11 @@ def CruisingdistanceandbatterybysimulationmodelButtonPushed():
         ),
         legend=dict(x=0.01, y=0.99, traceorder='normal')
     )
-    print("len(crusdist)",len(crusdist))
-    print("crusdist",crusdist)    
+    # print("len(crusdist)",len(crusdist))
+    # print("crusdist",crusdist)    
     fig.add_trace(go.Scatter(x=list(range(len(crusdist))), y=crusdist, name='Cruising Distance', mode='lines+markers', marker=dict(color='yellow', size=10), line=dict(color='red'),yaxis='y2'))
     fig.update_yaxes(range=[395, 425],dtick=5, secondary_y=True)
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
     # fig.show()
     return fig
 def CruisingdistanceandbatterybygearratioButtonPushed():
@@ -1916,13 +1914,13 @@ def CruisingdistanceandbatterybygearratioButtonPushed():
 
     bttcon= np.zeros(len(gdrArr))
     crusdist = np.zeros(len(gdrArr))
-    print("gear",gear)
+    # print("gear",gear)
     crusgear = gear.copy()
-    print("gear1",gear)
+    # print("gear1",gear)
     obj = wltcclass()
     obj.sec = dp.sec
     obj.num = dp.num
-    print("gear2",gear)
+    # print("gear2",gear)
 
     for idx in range(len(gdrArr)):
         print("gear4",gear)
@@ -1967,11 +1965,11 @@ def CruisingdistanceandbatterybygearratioButtonPushed():
         # legend=dict(x=0.01, y=0.99, traceorder='normal')
     )
     # print("len(crusdist)",len(crusdist))
-    print("gdrArr",gdrArr)
-    print("bttcon1",bttcon)
-    print("crusdist1",crusdist)    
+    # print("gdrArr",gdrArr)
+    # print("bttcon1",bttcon)
+    # print("crusdist1",crusdist)    
     fig.add_trace(go.Scatter(x=gdrArr, y=crusdist, name='Cruising Distance', mode='lines+markers', marker=dict(color='yellow', size=10), line=dict(color='red'), yaxis='y2'))
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
     # fig.show()
     return fig
 
@@ -2057,7 +2055,7 @@ def CruisingdistanceandbatterybyIdcButtonPushed():
     )
 
     fig.add_trace(go.Scatter(x=ImArr, y=crusdist, name='Cruising Distance', mode='lines+markers', marker=dict(color='yellow', size=10), line=dict(color='red'), yaxis='y2'))
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
     # fig.show()
     return fig
 
@@ -2110,7 +2108,7 @@ def CruisingdistanceandbatterybyTireinchButtonPushed():
     )
 
     fig.add_trace(go.Scatter(x=inchArr, y=crusdist, name='Cruising Distance', mode='lines+markers', marker=dict(color='yellow', size=10), line=dict(color='red'), yaxis='y2'))
-    fig.update_layout(showlegend=False)
+    fig.update_layout(showlegend=True)
 
     return fig
 
@@ -2259,7 +2257,7 @@ def IdIqcontrolMapButtonPushed( ):
     fig.update_layout(title='Id Iq control Map of Avatar IPM and A12 ')
 
     fig.update_layout(
-        title_font={'size': 12,'color': 'white'},
+        title_font={'size': 15,'color': 'white'},
         paper_bgcolor="rgba(0,0,0,0)",  # Set paper background color to transparent
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis=dict(title='Id(A)', showline=False, showgrid=False,zeroline=False),
@@ -2378,9 +2376,9 @@ def CLTCButtonPushed(condition_value='None'):
     # Calculate charge
     # CruisingDistanceEditField =481.16062584
     charge = (btt['charge']/ (dp.crusdist / 81)) / 10
-    print('bttchragae',btt['charge'])
-    print('dp.crusdist',dp.crusdist)
-    print("charge",charge);
+    # print('bttchragae',btt['charge'])
+    # print('dp.crusdist',dp.crusdist)
+    # print("charge",charge);
     # Plot charge
     fig.add_trace(go.Scatter(x=[btt['charge']], y=[charge], mode='markers', name='Charge', marker=dict(color='red', symbol='triangle-up', size=12)))
     fig.add_annotation(x=btt['charge'], y=charge, text='Simulated model', showarrow=False,font=dict(size=10,color='white'))
@@ -6549,7 +6547,7 @@ ploss_current = dmc.Flex(
                     dmc.Select(id="CurrentLossModeDD",value="2",data=[ {"value": "1", "label": "Top10;Bottom10;"},{"value": "2", "label": "Free Points"},],),
                     dmc.Button("Clear",id="clear_im",style={"color": "#5db1ec","fontWeight": "bold","backgroundColor":  "rgba(34, 139, 230, 0.15)",}),
                     dmc.Button("Next",id="Next_CurrentLossButton",disabled=True, variant="light",style={"justifyContent": "flex-end"}),
-                    # dmc.Button("Next",id="Next_CurrentLossButton",style={"color": "#5db1ec","fontWeight": "bold","backgroundColor":  "rgba(34, 139, 230, 0.15)","justifyContent": "flex-end"}),
+                    # dmc.Button("Next",id="Next_CugitrentLossButton",style={"color": "#5db1ec","fontWeight": "bold","backgroundColor":  "rgba(34, 139, 230, 0.15)","justifyContent": "flex-end"}),
                     # dmc.Drawer(title=id="imcurrent-drawer",padding="xs",size="100%",children=Next_ImLoss),
                     dmc.Drawer(title=dmc.Text("From Selected points",id="next_Imtext",size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center", "padding": "8px"}),id="imcurrent-drawer",padding="xs",size="100%",children=Next_ImLoss),
                     dmc.Modal(
@@ -10138,7 +10136,7 @@ def TnLoss(y1,ord1):
             hoverinfo='x+name'  # Show the values and category name in hover text
         ))
  
-    print("ord1",ord1)
+    # print("ord1",ord1)
     custom_y_ticks = list(range(20))
     # Customize the layout
     fig.update_layout(
@@ -10740,19 +10738,19 @@ def update_table(selected_value,ImAvg1):
        return dash.no_update,dash.no_update,[],dash.no_update
    
     label_map = {
-        "1": "Pe with regeneration by Tn at set points",
-        "2": "Pe(kWh) by Tn at set points",
-        "3": "Pe(kW/s) by Tn at set points",
-        "4": "PLoss(kW) by Tn at set points",
-        "5": "Pcu(kW) by Tn at set points",
-        "6": "Pfe(kW) by Tn at set points",
-        "6": "Pstr(kW) by Tn at set points",
-        "8": "Pf(kW) by Tn at set points",
-        "9": "Pw(kW) by Tn at set points",
-        "10": "Pinv(kW) by Tn at set points",
-        "11": "sum Ploss(kW) by Tn at set points",
-        "12": "Temp by Tn at set points",
-        "13": "η = Pe/Pbatt by Tn at set points",
+        "1": "Pe with regeneration by Im at set points",
+        "2": "Pe(kWh) by Im at set points",
+        "3": "Pe(kW/s) by Im at set points",
+        "4": "PLoss(kW) by Im at set points",
+        "5": "Pcu(kW) by Im at set points",
+        "6": "Pfe(kW) by Im at set points",
+        "6": "Pstr(kW) by Im at set points",
+        "8": "Pf(kW) by Im at set points",
+        "9": "Pw(kW) by Im at set points",
+        "10": "Pinv(kW) by Im at set points",
+        "11": "sum Ploss(kW) by Im at set points",
+        "12": "Temp by Im at set points",
+        "13": "η = Pe/Pbatt by Im at set points",
     }
     dp.condPe= np.array(dp.condPe)
     dp.Pekwh= np.array(dp.Pekwh)
@@ -10902,19 +10900,19 @@ def update_table(selected_value,ImAvg2):
    
    
     label_map = {
-        "1": "Pe with regeneration by Tn at set points",
-        "2": "Pe(kWh) by Tn at set points",
-        "3": "Pe(kW/s) by Tn at set points",
-        "4": "PLoss(kW) by Tn at set points",
-        "5": "Pcu(kW) by Tn at set points",
-        "6": "Pfe(kW) by Tn at set points",
-        "6": "Pstr(kW) by Tn at set points",
-        "8": "Pf(kW) by Tn at set points",
-        "9": "Pw(kW) by Tn at set points",
-        "10": "Pinv(kW) by Tn at set points",
-        "11": "sum Ploss(kW) by Tn at set points",
-        "12": "Temp by Tn at set points",
-        "13": "η = Pe/Pbatt by Tn at set points",
+        "1": "Pe with regeneration by Im at set points",
+        "2": "Pe(kWh) by Im at set points",
+        "3": "Pe(kW/s) by Im at set points",
+        "4": "PLoss(kW) by Im at set points",
+        "5": "Pcu(kW) by Im at set points",
+        "6": "Pfe(kW) by Im at set points",
+        "6": "Pstr(kW) by Im at set points",
+        "8": "Pf(kW) by Im at set points",
+        "9": "Pw(kW) by Im at set points",
+        "10": "Pinv(kW) by Im at set points",
+        "11": "sum Ploss(kW) by Im at set points",
+        "12": "Temp by Im at set points",
+        "13": "η = Pe/Pbatt by Im at set points",
     }
     dp.condPe= np.array(dp.condPe)
     dp.Pekwh= np.array(dp.Pekwh)
@@ -11066,19 +11064,19 @@ def update_table(selected_value,ImAvg3):
         return dash.no_update,dash.no_update,[],dash.no_update
    
     label_map = {
-        "1": "Pe with regeneration by Tn at set points",
-        "2": "Pe(kWh) by Tn at set points",
-        "3": "Pe(kW/s) by Tn at set points",
-        "4": "PLoss(kW) by Tn at set points",
-        "5": "Pcu(kW) by Tn at set points",
-        "6": "Pfe(kW) by Tn at set points",
-        "6": "Pstr(kW) by Tn at set points",
-        "8": "Pf(kW) by Tn at set points",
-        "9": "Pw(kW) by Tn at set points",
-        "10": "Pinv(kW) by Tn at set points",
-        "11": "sum Ploss(kW) by Tn at set points",
-        "12": "Temp by Tn at set points",
-        "13": "η = Pe/Pbatt by Tn at set points",
+        "1": "Pe with regeneration by Im at set points",
+        "2": "Pe(kWh) by Im at set points",
+        "3": "Pe(kW/s) by Im at set points",
+        "4": "PLoss(kW) by Im at set points",
+        "5": "Pcu(kW) by Im at set points",
+        "6": "Pfe(kW) by Im at set points",
+        "6": "Pstr(kW) by Im at set points",
+        "8": "Pf(kW) by Im at set points",
+        "9": "Pw(kW) by Im at set points",
+        "10": "Pinv(kW) by Im at set points",
+        "11": "sum Ploss(kW) by Im at set points",
+        "12": "Temp by Im at set points",
+        "13": "η = Pe/Pbatt by Im at set points",
     }
     dp.condPe= np.array(dp.condPe)
     dp.Pekwh= np.array(dp.Pekwh)
@@ -11309,8 +11307,10 @@ def Next_ImLossButtonPushed(n_clicks,CurrentLossModeDD,Imdrrop1,Imdrrop2,Imdrrop
         Ordtab1 = np.zeros((numx, numy))
         Ordtab2 = np.zeros((numx, numy))
         Ordtab3 = np.zeros((numx, numy))
-
+        print("mat1",mat1)
+        print("ord1",ord1)
         Ordtab1[np.isin(mat1, ord1)] = mat1[np.isin(mat1, ord1)]
+        print("Ordtab1",Ordtab1)
         Ordtab2[np.isin(mat2, ord2)] = mat2[np.isin(mat2, ord2)]
         Ordtab3[np.isin(mat3, ord3)] = mat3[np.isin(mat3, ord3)]
 
