@@ -26,6 +26,6 @@ def LossTypeCalc(freqmap, avg, losstype, TnorIm, werpm, xax):
                 div = 1
  
             # Calculate the value to be stored in mat
-            mat[ind, idx] = round(val / div, 4)
+            mat[ind, idx] = round(val / div, 6)
  
     return mat

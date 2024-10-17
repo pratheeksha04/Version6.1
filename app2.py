@@ -1042,9 +1042,9 @@ def IdIqControlMapByTemp(condition_value='None'):
     n5000 = np.where(a12['nrpm'] == 5000) 
     p10000 = np.where(a12['prpm'] == 10000) 
     n10000 = np.where(a12['nrpm'] == 10000) 
-    print("n5000",n5000)
-    print("n10000",n10000)
-    print("n5000",a12['negId'][n5000])
+    # print("n5000",n5000)
+    # print("n10000",n10000)
+    # print("n5000",a12['negId'][n5000])
 
     ipm.plaId = np.array( ipm.plaId)
     ipm.plaIq = np.array( ipm.plaIq)
@@ -1288,14 +1288,14 @@ def IPMModelingTabButtonDown():
     curflag = 2
     
     if IPMflag == 2:
-        print("2 flag")
+        # print("2 flag")
         return mtpv_web,maxPe,maxTn,maxeff,maxposeff,maxt
     
     
     a=5
     crr = np.array([S1K, S5K, S10K, S15K]) + ipm.initial
     ipm.plaId,ipm.plaIq = ipmclass.filter(crr,ipm.rpm,ipm.Id,ipm.Iq)
-    print("ipm.plaId ipmmodellig",ipm.plaId)
+    # print("ipm.plaId ipmmodellig",ipm.plaId)
     num=len(ipm.rpm)
     ipmclass.losscalc(ipm,mot,inv,igbt,Temp,Flag,num)
     gt = ipmclass.graphtool(ipm.IPMstatus,ipm.Id,ipm.Iq,ipm.Tn,ipm.Pe)
@@ -1787,7 +1787,7 @@ def CruisingdistanceandbatterybysimulationandpoleButtonPushed():
             end_time = time.time()
  
             execution_time = end_time - start_time
-            print(f"Execution time ipm {idx} : {execution_time} seconds")
+            # print(f"Execution time ipm {idx} : {execution_time} seconds")
  
  
             start_time = time.time()
@@ -1798,7 +1798,7 @@ def CruisingdistanceandbatterybysimulationandpoleButtonPushed():
             end_time = time.time()
  
             execution_time = end_time - start_time
-            print(f"Execution time WLTC {idx} : {execution_time} seconds")
+            # print(f"Execution time WLTC {idx} : {execution_time} seconds")
  
  
             bttcon[counter] = dpobj.bttcon
@@ -1886,8 +1886,8 @@ def CruisingdistanceandbatterybysimulationmodelButtonPushed():
         crusdist[idx] = dpobj.crusdist
     
     fig = make_subplots(specs=[[{"secondary_y": True}]])
-    print("len(bttcon)",len(bttcon))
-    print("bttcon",bttcon)
+    # print("len(bttcon)",len(bttcon))
+    # print("bttcon",bttcon)
     fig.add_trace(go.Bar(x=list(range(len(bttcon))), y=bttcon, name='BTT (kWh/10km)', marker_color='blue'))
     
     fig.update_layout(
@@ -1903,8 +1903,8 @@ def CruisingdistanceandbatterybysimulationmodelButtonPushed():
         ),
         legend=dict(x=0.01, y=0.99, traceorder='normal')
     )
-    print("len(crusdist)",len(crusdist))
-    print("crusdist",crusdist)    
+    # print("len(crusdist)",len(crusdist))
+    # print("crusdist",crusdist)    
     fig.add_trace(go.Scatter(x=list(range(len(crusdist))), y=crusdist, name='Cruising Distance', mode='lines+markers', marker=dict(color='yellow', size=10), line=dict(color='red'),yaxis='y2'))
     fig.update_yaxes(range=[395, 425],dtick=5, secondary_y=True)
     fig.update_layout(showlegend=True)
@@ -1916,7 +1916,7 @@ def CruisingdistanceandbatterybygearratioButtonPushed():
 
     bttcon= np.zeros(len(gdrArr))
     crusdist = np.zeros(len(gdrArr))
-    print("gear",gear)
+    # print("gear",gear)
     crusgear = gear.copy()
     print("gear1",gear)
     obj = wltcclass()
@@ -1947,7 +1947,7 @@ def CruisingdistanceandbatterybygearratioButtonPushed():
 
     fig.update_layout(
         title='Cruising Distance (km) and BTT (kWh/10km) by Gear Ratio',
-        xaxis = dict(title='Gear Ratio',range=[4,16],dtick=5),
+        xaxis = dict(title='Gear Ratio',dtick=5),#range=[4,16],
         yaxis=dict(
             title='BTT (kWh/10km)',
             titlefont=dict(color='blue'),
@@ -2334,7 +2334,7 @@ def data_tabg1(condition_value='None'):
     # Update layout to match the styling
     fig.update_layout(
         title='Energy Consumption (kwh/10km) Vs Battery Capacity',
-        title_font=dict(size=15, color='white'),
+        title_font=dict(size=12, color='white'),
         paper_bgcolor="rgba(0,0,0,0)",  # Transparent background
         plot_bgcolor="rgba(0,0,0,0)",
         xaxis=dict(title='Battery Capacity', color='white', showgrid=False, showline=False),
@@ -2378,9 +2378,9 @@ def CLTCButtonPushed(condition_value='None'):
     # Calculate charge
     # CruisingDistanceEditField =481.16062584
     charge = (btt['charge']/ (dp.crusdist / 81)) / 10
-    print('bttchragae',btt['charge'])
-    print('dp.crusdist',dp.crusdist)
-    print("charge",charge);
+    # print('bttchragae',btt['charge'])
+    # print('dp.crusdist',dp.crusdist)
+    # print("charge",charge);
     # Plot charge
     fig.add_trace(go.Scatter(x=[btt['charge']], y=[charge], mode='markers', name='Charge', marker=dict(color='red', symbol='triangle-up', size=12)))
     fig.add_annotation(x=btt['charge'], y=charge, text='Simulated model', showarrow=False,font=dict(size=10,color='white'))
@@ -3068,7 +3068,7 @@ Introduction_contents = [
 User_Manual = [
     dmc.Flex([
         html.Iframe(
-            src='/assets/web_v6.0_manual.pdf',
+            src='/assets/web_v6.1_manual.pdf',
             style={'width': '100%', 'height': 'calc(100vh - 100px)','border': 'none'}
         )
     ],style={"flex": 1, "height": "100%"},direction="column",mt=10)
@@ -3542,7 +3542,7 @@ input_contents = [
                     ),
                     dmc.CardSection(
                         dmc.Flex([
-                            dmc.Image(src="assets/images/Motor.png", h=120, w=200),
+                            dmc.Image(src="assets/images/Motor.png", h=90, w=180),
                         ], justify="center", align="center",style={"height": "150px"}),
                         withBorder=True,
                         inheritPadding=True,
@@ -3624,7 +3624,7 @@ input_contents = [
                     ),
                     dmc.CardSection(
                         dmc.Flex([
-                            dmc.Image(src="assets/images/Inverter.png", h=120, w=200),
+                            dmc.Image(src="assets/images/Inverter.png", h=100, w=200),
                         ], justify="center", align="center",style={"height": "150px"}),
                         withBorder=True,
                         inheritPadding=True,
@@ -3707,7 +3707,7 @@ input_contents = [
                     ),
                     dmc.CardSection(
                         dmc.Flex([
-                            dmc.Image(src="assets/images/Battery.png", h=120, w=200),
+                            dmc.Image(src="assets/images/Battery.png", h=100, w=200),
                         ], justify="center", align="center",style={"height": "150px"}),
                         withBorder=True,
                         inheritPadding=True,
@@ -3789,7 +3789,7 @@ input_contents = [
                     ),
                     dmc.CardSection(
                         dmc.Flex([
-                            dmc.Image(src="assets/images/Gear.png", h=120, w=200),
+                            dmc.Image(src="assets/images/Gear.png", h=125, w=200),
                         ], justify="center", align="center",style={"height": "150px"}),
                         withBorder=True,
                         inheritPadding=True,
@@ -3953,7 +3953,7 @@ input_contents = [
                     ),
                     dmc.CardSection(
                         dmc.Flex([
-                            dmc.Image(src="assets/images/Vehicle.png", h=120, w=200),
+                            dmc.Image(src="assets/images/Vehicle.png", h=70),
                         ], justify="center", align="center",style={"height": "150px"}),
                         withBorder=True,
                         inheritPadding=True,
@@ -4131,7 +4131,7 @@ table_drive_input= dmc.TableTbody(children=[
             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
         ), 
         dmc.TableTd(dmc.NumberInput(   value=9.81,className="rounded-inputvalipm",hideControls="True",disabled=True,id="GravityEditField",style={"backgroundColor":"#a6a6a6",})),
-        dmc.TableTd("m..", style={"color":"white" }),
+        dmc.TableTd("m^2", style={"color":"white" }),
         dmc.TableTd(
         dmc.Text("Cruising Pattern",size="sm", c="white", style={
             "width": "109px",
@@ -4165,7 +4165,7 @@ table_drive_input= dmc.TableTbody(children=[
             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
         ), 
         dmc.TableTd(dmc.NumberInput(   value=0,className="rounded-inputvalipm",hideControls="True",disabled=True,id="VWindEditField",style={"backgroundColor":"#a6a6a6"})),
-        dmc.TableTd("k..", style={"color":"white" }),
+        dmc.TableTd("km/H", style={"color":"white" }),
                 dmc.Tooltip(
             label="The drag coefficient is a dimensionless number representing the vehicle’s aerodynamic efficiency",
             children= dmc.TableTd("Drag Coeff", style={"color":"white" }),
@@ -4177,14 +4177,14 @@ table_drive_input= dmc.TableTbody(children=[
     ]),
     dmc.TableTr([
         dmc.Tooltip(
-            label="The frontal area is the cross-sectional area of the vehicle facing the airflow.",
-            children= dmc.TableTd("Frontial Area", style={"color":"white" }),
+            label="Rolling resistance is the force that opposes the motion of the vehicle as the tire roll over a surface.",
+            children= dmc.TableTd("Rolling Resistance", style={"color":"white" }),
             position="left",
             offset=3,multiline=True,w=250,withArrow=True,
             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
         ), 
-        dmc.TableTd(dmc.NumberInput(   value=1.5,className="rounded-inputvalipm",hideControls="True",disabled=True,id="AfEditField",style={"backgroundColor":"#a6a6a6"})),
-        dmc.TableTd("m^2", style={"color":"white" }),
+        dmc.TableTd(dmc.NumberInput(   value=0.008,className="rounded-inputvalipm",hideControls="True",disabled=True,id="frEditField",style={"backgroundColor":"#a6a6a6"})), 
+        dmc.TableTd("m/s^2", style={"color":"white" }),
                 dmc.Tooltip(
             label="Slip ratio is the difference between the rotational speed of the tire and the actual speed of the vehicle.",
             children= dmc.TableTd("Slip Ratio", style={"color":"white","textAlign": "center"}),
@@ -4203,7 +4203,7 @@ table_drive_input= dmc.TableTbody(children=[
             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
         ), 
         dmc.TableTd(dmc.NumberInput(   value=1.225,className="rounded-inputvalipm",hideControls="True",disabled=True,id="pEditField",style={"backgroundColor":"#a6a6a6"})),
-        dmc.TableTd("k..", style={"color":"white" }),
+        dmc.TableTd("kg/m^3", style={"color":"white" }),
                 dmc.Tooltip(
             label="Transmission efficiency is the ratio of the output power to the input power of the transmission system.",
             children= dmc.TableTd("Trans Eff", style={"color":"white",  }),
@@ -4224,13 +4224,15 @@ table_drive_input= dmc.TableTbody(children=[
         dmc.TableTd(dmc.NumberInput(   value=0,className="rounded-inputvalipm",hideControls="True",disabled=True,id="RoadGradeEditField",style={"backgroundColor":"#a6a6a6"})),
         dmc.TableTd(),
         dmc.Tooltip(
-            label="Rolling resistance is the force that opposes the motion of the vehicle as the tire roll over a surface.",
-            children= dmc.TableTd("Rolling Resistance", style={"color":"white" }),
+            label="The frontal area is the cross-sectional area of the vehicle facing the airflow.",
+            children= dmc.TableTd("Frontial Area", style={"color":"white" }),
             position="left",
             offset=3,multiline=True,w=250,withArrow=True,
             transitionProps={"transition": "fade", "duration": 200,"timingFunction": "ease"},
         ), 
-        dmc.TableTd(dmc.NumberInput(   value=0.008,className="rounded-inputvalipm",hideControls="True",disabled=True,id="frEditField",style={"backgroundColor":"#a6a6a6"})), 
+        dmc.TableTd(dmc.NumberInput(   value=1.5,className="rounded-inputvalipm",hideControls="True",disabled=True,id="AfEditField",style={"backgroundColor":"#a6a6a6"})),
+
+        
     ]),
 ])
 table_head=dmc.TableThead(
@@ -4256,10 +4258,10 @@ table_ipm_button = dmc.TableTbody(children=[
     ]),
     dmc.TableTr([
         dmc.TableTd(dmc.Button("Id Iq Map By Temperature", id="idiqtemp", variant="light", style={"width": "100%"}), style={"width": "50%"}),
-        dmc.TableTd(dmc.Button("Temperature Profile", id="tempprof", variant="light", style={"width": "100%"}), style={"width": "50%"})
+        dmc.TableTd(dmc.Button("Id Iq map by Torque", id="idiqtor", variant="light", style={"width": "100%"}), style={"width": "50%"})
     ]),
     dmc.TableTr([
-        dmc.TableTd(dmc.Button("Temperature Profile", id="tempprof2", variant="light", style={"width": "100%"}), style={"width": "50%"}),
+        dmc.TableTd(dmc.Button("Temperature Profile", id="tempprof", variant="light", style={"width": "100%"}), style={"width": "50%"}),
         dmc.TableTd(dmc.Button("Ploss-LMC", id="plosslmc", variant="light", style={"width": "100%"}), style={"width": "50%"})
     ])
 ])
@@ -7042,7 +7044,7 @@ ploss_tab=dmc.Flex([
             dmc.Paper(children=[dmc.Text("Loss Type", size="sm", style={"color": "#5db1ec","fontWeight": "bold", "textAlign": "center","padding": "8px"})], 
                 withBorder=True,shadow="sm", style={"backgroundColor":  "rgba(34, 139, 230, 0.15)",'width': '30%',"justifyContent": "center", "alignItems": "center"}),
             # dmc.Text("Mode", fw=500),
-            dmc.Select(id="ploss_types",value="2",data=[ 
+            dmc.Select(id="ploss_types",value="1",data=[ 
                 {"value": "1", "label": "Pbattery"},{"value": "2", "label": "Ploss",},{"value": "3", "label": "Pcopper"},{"value": "4", "label": "Piron",},
                 {"value": "5", "label": "Pstray"},{"value": "6", "label": "Pfriction",},{"value": "7", "label": "Pwindage"},{"value": "8", "label": "Pinverter",},
                 {"value": "9", "label": "Positive efficicency"},{"value": "10", "label": "Negative efficicency",},{"value": "11", "label": "efficicency"},
@@ -10252,6 +10254,7 @@ def update_table(selected_value,TnAvg3):
     dp.Im= np.array(dp.Im)
     dp.werpm= np.array(dp.werpm)
     dp.Ploss=np.array(dp.Ploss)
+
     if selected_value == "1":
         TnLosstype3 = dp.condPe
     elif selected_value == "2":
@@ -10337,7 +10340,7 @@ def TnLoss(y1,ord1):
             hoverinfo='x+name'  # Show the values and category name in hover text
         ))
  
-    print("ord1",ord1)
+    # print("ord1",ord1)
     custom_y_ticks = list(range(20))
     # Customize the layout
     fig.update_layout(
@@ -10502,7 +10505,8 @@ def Next_TnLossButtonPushed(n_clicks,TnLossModeDD,Tndrrop1,Tndrrop2,Tndrrop3,ope
         else:
             ptx = [point[0] for point in Tnpoints]
             pty = [point[1] for point in Tnpoints]
-    
+        print("ptx",ptx)
+        print("pty",pty)
     
         arr = np.arange(0, 100001, 1000)
         num = len(arr)
@@ -10565,14 +10569,14 @@ def Next_TnLossButtonPushed(n_clicks,TnLossModeDD,Tndrrop1,Tndrrop2,Tndrrop3,ope
         mat1 = np.array(TnLoss1_data1)
         # print("ptx",ptx)
         # print("sumarray1",sumarray1)
-        # sigman[idx] = np.sum(TnN[condition])  # Column AE
-        for i in range(len(sigman)):
-            print("i",i,sigman[i])
+        # # sigman[idx] = np.sum(TnN[condition])  # Column AE
+        # for i in range(len(sigman)):
+        #     print("i",i,sigman[i])
 
-        ord11, y1 = OrdMatCalc(mode, mat1, np.round(sumarray1, 4), sumPcu, sumPFe, sumPstr, sumPf, sumPw, sumPinv, ptx, pty)
+        ord11, y1 = OrdMatCalc(mode, mat1, np.round(sumarray1, 6), sumPcu, sumPFe, sumPstr, sumPf, sumPw, sumPinv, ptx, pty)
         print("y1",y1)
         ord1 = ord11.reshape(-1, 1)  # Reshape ord1 to be 20x1
-        data = np.hstack((ord1, np.round(y1,4)))  # Now hstack will work correctly
+        data = np.hstack((ord1, np.round(y1,6)))  # Now hstack will work correctly
         table_data = [[row_name] + list(row_data) for row_name, row_data in zip(rownames, data)]
         table_data.insert(0, colnames)
         OrderTableTn1 = {
@@ -10580,9 +10584,9 @@ def Next_TnLossButtonPushed(n_clicks,TnLossModeDD,Tndrrop1,Tndrrop2,Tndrrop3,ope
         }
     
         mat2 = np.array(TnLoss2['data'])
-        ord22, y2 = OrdMatCalc(mode, mat2, np.round(sumarray2, 4), sumPcu, sumPFe, sumPstr, sumPf, sumPw, sumPinv, ptx, pty)
+        ord22, y2 = OrdMatCalc(mode, mat2, np.round(sumarray2, 6), sumPcu, sumPFe, sumPstr, sumPf, sumPw, sumPinv, ptx, pty)
         ord2 = ord22.reshape(-1, 1)  # Reshape ord1 to be 20x1
-        data = np.hstack((ord2, np.round(y2,4)))  # Now hstack will work correctly
+        data = np.hstack((ord2, np.round(y2,6)))  # Now hstack will work correctly
         table_data = [[row_name] + list(row_data) for row_name, row_data in zip(rownames, data)]
         table_data.insert(0, colnames)
         OrderTableTn2 = {
@@ -10591,9 +10595,9 @@ def Next_TnLossButtonPushed(n_clicks,TnLossModeDD,Tndrrop1,Tndrrop2,Tndrrop3,ope
     
     
         mat3 = np.array(TnLoss3['data'])
-        ord33, y3 = OrdMatCalc(mode, mat3, np.round(sumarray3, 4), sumPcu, sumPFe, sumPstr, sumPf, sumPw, sumPinv, ptx, pty)
+        ord33, y3 = OrdMatCalc(mode, mat3, np.round(sumarray3,6), sumPcu, sumPFe, sumPstr, sumPf, sumPw, sumPinv, ptx, pty)
         ord3 = ord33.reshape(-1, 1)  # Reshape ord1 to be 20x1
-        data = np.hstack((ord3, np.round(y3,4)))  # Now hstack will work correctly
+        data = np.hstack((ord3, np.round(y3,6)))  # Now hstack will work correctly
         table_data = [[row_name] + list(row_data) for row_name, row_data in zip(rownames, data)]
         table_data.insert(0, colnames)
         OrderTableTn3 = {
@@ -10611,7 +10615,7 @@ def Next_TnLossButtonPushed(n_clicks,TnLossModeDD,Tndrrop1,Tndrrop2,Tndrrop3,ope
     
         ColNames = [f'{yax[i]} - {yax[i+1]}' for i in range(len(yax) - 1)]
         ColNames = [" "] +  ColNames
-        RowNames = [f'{xax[i]}' for i in range(len(xax) - 1)]
+        RowNames = [f'{xax[i]} - {xax[i+1]}' for i in range(len(xax) - 1)]
     
     
         Ordtab1_data = [[row_name] + row_data for row_name, row_data in zip(RowNames, Ordtab1.tolist())]
@@ -11503,7 +11507,7 @@ def Next_ImLossButtonPushed(n_clicks,CurrentLossModeDD,Imdrrop1,Imdrrop2,Imdrrop
 
         ColNames1 = [f'{yax[i]} - {yax[i+1]}' for i in range(len(yax) - 1)]
         ColNames1 = [" "] +  ColNames1
-        RowNames1 = [f'{xax[i]}' for i in range(len(xax) - 1)]
+        RowNames1 = [f'{xax[i]}- {xax[i+1]}' for i in range(len(xax) - 1)]
 
         Ordtab1 = np.zeros((numx, numy))
         Ordtab2 = np.zeros((numx, numy))
@@ -11896,6 +11900,7 @@ def toggle_modal(n_clicks, opened):
     Output("ipmloader4","display"),
     Output("ipmloader5","display"),
     Output("ipmloader6","display"),
+    Output("IncrementEditField","disabled"),
     Output("InitialEditField","disabled"),
     Output("InitempEditField","disabled"),
     Output("RoomTempEditField","disabled"),
@@ -11911,11 +11916,11 @@ def toggle_modal(n_clicks, opened):
 def toggle_icon(n_clicks):
     global IPMflag,dpflag
     if n_clicks % 2 == 1:
-        return "hide","hide","hide","hide","hide","hide",False,False,False,False,False,DashIconify(icon="fluent-emoji:check-mark-button"),True,True
+        return "hide","hide","hide","hide","hide","hide",False,False,False,False,False,False,DashIconify(icon="fluent-emoji:check-mark-button"),True,True
     else:
         IPMflag = 0
         dpflag = 0
-        return "hide","hide","hide","hide","hide","hide",True,True,True,True,True,DashIconify(icon="fluent-emoji-flat:pencil"),None,None
+        return "hide","hide","hide","hide","hide","hide",True,True,True,True,True,True,DashIconify(icon="fluent-emoji-flat:pencil"),None,None
 
 #ipm edit confirm
 
@@ -12196,4 +12201,4 @@ server = app.server
 # Run the server
 if __name__ == "__main__":
     # app.run_server(host='0.0.0.0', port=8050)
-    app.run_server(debug=False)
+    app.run_server(debug=True)
