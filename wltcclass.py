@@ -150,7 +150,11 @@ class wltcclass:
  
         self.rpmflag = np.ones(4100)
         idx = (ipm.rpm < np.roll(ipm.rpm, -1)) & (np.roll(ipm.Idc, -1) < ipm.Idc)
+        # print("idxlen",len(idx))
+        
         self.rpmflag[idx] = 0
+        # for i in range(len(self.rpmflag)):
+        #     print("idxi",i,self.rpmflag[i])
 
 
         nacount = 0
@@ -160,8 +164,10 @@ class wltcclass:
             indices = np.where(condition)[0]
            
             if indices.size > 0:
+                # print(indices)
                 foundAt = indices[-1]  # Find the last occurrence
                 index[idx] = foundAt
+                print(idx,index[idx])
            
             # When flag found, Use the IPM Modeled values at its location
             if index[idx] != 0:  # This condition will satisfy Col AY

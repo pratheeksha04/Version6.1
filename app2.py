@@ -3245,7 +3245,7 @@ dig_Twin3=html.Tr([
     # html.Td("0",id="Aif1",style={"color":"white","textAlign": "center", "borderRadius": "2px","backgroundColor":"#b87c7c"}),
     # html.Td("0",id="Bif1",style={"color":"white","textAlign": "center", "borderRadius": "2px","backgroundColor":"#b87c7c"}),
     html.Td("0",id="stdrpm1",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
-    html.Td("806.2",id="speed1",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
+    html.Td("806.201012398403",id="speed1",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
     html.Td("0",id="Min1EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"}),
     html.Td("0",id="Max1EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"})
 ])
@@ -3266,7 +3266,7 @@ dig_Twin4 = html.Tr([
     # html.Td("0",id="Aif2",style={'backgroundColor': '#b1a58a', 'color': 'black'}),
     # html.Td("0",id="Bif2",style={'backgroundColor': '#b1a58a', 'color': 'black'}),
     html.Td("0",id="stdrpm2",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
-    html.Td("804.7",id="speed2",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
+    html.Td("804.690956286779",id="speed2",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
     html.Td("0",id="Min2EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"}),
     html.Td("0",id="Max2EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"})
 ])
@@ -3288,7 +3288,7 @@ dig_Twin5 = html.Tr([
     # html.Td("0",id="Aif3",style={'backgroundColor': '#b1a58a', 'color': 'black'}),
     # html.Td("0",id="Bif3",style={'backgroundColor': '#b1a58a', 'color': 'black'}),
     html.Td("0",id="stdrpm3",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b1a689"}),
-    html.Td("796.9",id="speed3",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b1a689"}),
+    html.Td("796.899726551157",id="speed3",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b1a689"}),
     html.Td("0",id="Min3EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"}),
     html.Td("0",id="Max3EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"})
 ])
@@ -3310,7 +3310,7 @@ dig_Twin6= html.Tr([
     # html.Td("0",id="Aif4",style={'backgroundColor': '#b1a58a', 'color': 'black'}),
     # html.Td("0",id="Bif4",style={'backgroundColor': '#b1a58a', 'color': 'black'}),
     html.Td("0",id="stdrpm4",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
-    html.Td("816",id="speed4",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
+    html.Td("816.029814129294",id="speed4",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
     html.Td("0",id="Min4EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"}),
     html.Td("0",id="Max4EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"})
 ])
@@ -3330,7 +3330,7 @@ dig_Twin7 = html.Tr([
     # html.Td("0",id="Aif5",style={'backgroundColor': '#b1a58a', 'color': 'black'}),
     # html.Td("0",id="Bif5",style={'backgroundColor': '#b1a58a', 'color': 'black'}),
     html.Td("0",id="stdrpm5",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
-    html.Td("836.3",id="speed5",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
+    html.Td("836.278591181952",id="speed5",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b87c7c"}),
     html.Td("0",id="Min5EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"}),
     html.Td("0",id="Max5EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"})
 ])
@@ -3352,7 +3352,7 @@ dig_Twin8 = html.Tr([
     # html.Td("0",id="Aif6",style={'backgroundColor': '#b1a58a', 'color': 'black'}),
     # html.Td("0",id="Bif6",style={'backgroundColor': '#b1a58a', 'color': 'black'}),
     html.Td("0",id="stdrpm6",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#a3b092"}),
-    html.Td("807.3",id="speed6",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#a3b092"}),
+    html.Td("807.258627368679",id="speed6",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#a3b092"}),
     html.Td("0",id="Min6EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"}),
     html.Td("0",id="Max6EditField",style={"color":"white","textAlign": "center", "borderRadius": "5px","backgroundColor":"#b3b319"})
 ])
